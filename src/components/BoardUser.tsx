@@ -5,6 +5,7 @@ import EventBus from "../common/EventBus";
 
 const BoardUser: React.FC = () => {
   const [content, setContent] = useState<string>("");
+  console.log("content", content)
 
   useEffect(() => {
     getUserBoard().then(

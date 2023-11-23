@@ -7,6 +7,11 @@ export const getPublicContent = () => {
   return axios.get(API_URL + "all");
 };
 
+export const getNews = () => {
+  return axios.get(API_URL + "news");
+};
+
+
 export const getUserBoard = () => {
   return axios.get(API_URL + "user", { headers: authHeader() });
 };

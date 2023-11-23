@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 
-import { getPublicContent } from "../services/user.service";
+import {getNews, getPublicContent} from "../services/user.service";
+import {array} from "yup";
+import Card from '@mui/material/Card';
 
+interface IContent{
+  content: string;
+  date: string;
+  header: string;
+  id: number;
+}
 const Home: React.FC = () => {
-  const [content, setContent] = useState<string>("");
+  const [content, setContent] = useState<IContent[]>([]);
+  console.log("home content", content)
 
   useEffect(() => {
-    getPublicContent().then(
+    getNews().then(
       (response) => {
         setContent(response.data);
       },
@@ -21,11 +30,28 @@ const Home: React.FC = () => {
     );
   }, []);
 
+  const card = content.map(item => {
+    return (
+        <div>
+          <div>
+            <h4>
+              {item.header}
+            </h4>
+          </div>
+          <div>
+            {item.content}
+          </div>
+        </div>
+    );
+  })
   return (
     <div className="container">
       <header className="jumbotron">
-        <h3>{content}</h3>
+        <h3>контент</h3>
       </header>
+      <div>
+        {card}
+      </div>
     </div>
   );
 };

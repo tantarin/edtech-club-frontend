@@ -19,6 +19,7 @@ import EventBus from "./common/EventBus";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
+  console.log("showModeratorBoard", showModeratorBoard)
   const [showAdminBoard, setShowAdminBoard] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<IUser | undefined>(undefined);
 
@@ -49,7 +50,7 @@ const App: React.FC = () => {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
-          bezKoder
+          EdTech Startup Club
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
