@@ -38,9 +38,12 @@ const Home: React.FC = () => {
         return (
             <Card key={item.id} sx={{ maxWidth: 345, marginBottom: 2 }}>
                 <CardActionArea>
-                    {/* Ваша карточка может выглядеть по-разному в зависимости от данных */}
-                    {/* В примере используется изображение из поля content, а также отображение заголовка и контента */}
-                    {/* Вы можете настроить это в соответствии с вашими данными */}
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image="https://via.placeholder.com/345x140"  // Replace this URL with the desired image URL
+                        alt="Placeholder Image"
+                    />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                             {item.header}
@@ -57,10 +60,9 @@ const Home: React.FC = () => {
     return (
         <div className="container">
             <header className="jumbotron">
-                <h3>контент</h3>
+                <h3>События</h3>
             </header>
             <div>{cards}</div>
-            <div>{/* Use the cards variable here or in some other part of your component */}</div>
         </div>
     );
 };
