@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import {getNews, getPublicContent} from "../services/user.service";
-import {array} from "yup";
+import {getNews} from "../services/user.service";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -36,7 +35,7 @@ const Home: React.FC = () => {
 
     const cards = content.map((item) => {
         return (
-            <Card key={item.id} sx={{ maxWidth: 345, marginBottom: 2 }}>
+            <Card key={item.id} sx={{ maxWidth: 345, margin: '0 2px 2px 0' }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
@@ -58,11 +57,13 @@ const Home: React.FC = () => {
     });
 
     return (
-        <div className="container">
+        <div className="container" >
             <header className="jumbotron">
-                <h3>События</h3>
+                <h3>События клуба</h3>
             </header>
-            <div>{cards}</div>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', border: '1px solid #000', padding: '1em'}}>
+                {cards}
+            </div>
         </div>
     );
 };
