@@ -61,7 +61,7 @@ const Home: React.FC = () => {
             <header className="jumbotron">
                 <h3>События клуба</h3>
             </header>
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', border: '1px solid #000', padding: '1em'}}>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'left', border: '1px solid #000', padding: '1em'}}>
                 {cards}
             </div>
         </div>
