@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import {CardActionArea, Button, Box} from "@mui/material";
+import {Link} from "react-router-dom";
 
 interface IContent {
     content: string;
@@ -75,9 +76,11 @@ const News: React.FC = () => {
                 justifyContent="flex-end"
                 alignItems="flex-end"
             >
-                <Button variant="contained" color="primary" sx={{ height: 40 }}>
-                    Добавить новость
-                </Button>
+                <Link to="/addNews" style={{ textDecoration: "none" }}>
+                    <Button variant="contained" color="primary" sx={{ height: 40 }}>
+                        Добавить новость
+                    </Button>
+                </Link>
             </Box>
             <div
                 style={{
