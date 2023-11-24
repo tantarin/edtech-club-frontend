@@ -66,12 +66,11 @@ const News: React.FC = () => {
 
     return (
         <div className="container">
-            <header className="jumbotron">
+            <header className="jumbotron" style={{ marginBottom: 0 }}>
                 <h3>События клуба</h3>
             </header>
             <Box
                 m={1}
-                //margin
                 display="flex"
                 justifyContent="flex-end"
                 alignItems="flex-end"
