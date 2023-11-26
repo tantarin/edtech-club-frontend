@@ -14,8 +14,8 @@ const AdsPage: React.FC = () => {
     // Загрузка объявлений (замените на свой метод загрузки)
     const loadAds = async () => {
         // Ваш код для загрузки объявлений
-        const data: AdData[] = await fetchData(); // Замените fetchData на ваш метод загрузки данных
-        setAds(data);
+        // const data: AdData[] = await fetchData(); // Замените fetchData на ваш метод загрузки данных
+        // setAds(data);
     };
 
     useEffect(() => {

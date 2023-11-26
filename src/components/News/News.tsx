@@ -53,7 +53,7 @@ const News: React.FC = () => {
                 <Grid item xs={12} sm={6} md={4} >
                 <Card
                     key={item.id}
-                    sx={{maxWidth: 345, margin: "0 2px 2px 0"}} style={{height: "100%"}}
+                    sx={{maxWidth: 345, margin: "0 2px 2px 0", maxHeight: 500}} style={{height: "100%"}}
                 >
                     <CardActionArea>
                         <CardMedia
@@ -70,9 +70,6 @@ const News: React.FC = () => {
                                 {item.content}
                             </Typography>
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
                     </CardActionArea>
                 </Card>
                 </Grid>
