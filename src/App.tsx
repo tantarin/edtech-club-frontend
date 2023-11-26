@@ -9,7 +9,7 @@ import IUser from './types/user.type';
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import News from "./components/News";
+import News from "./components/News/News";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
