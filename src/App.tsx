@@ -16,7 +16,7 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 
 import EventBus from "./common/EventBus";
-import AddNews from "./components/AddNews";
+import AddNews from "./components/News/AddNews";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -57,6 +57,12 @@ const App: React.FC = () => {
           <li className="nav-item">
             <Link to={"/home"} className="nav-link">
               События клуба
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to={"/home"} className="nav-link">
+              Поиск команды
             </Link>
           </li>
 
