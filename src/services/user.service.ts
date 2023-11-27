@@ -11,6 +11,9 @@ export const getNews = () => {
   return axios.get(API_URL + "news");
 };
 
+export const getAds = () => {
+  return axios.get(API_URL + "ads");
+};
 
 export const getUserBoard = () => {
   return axios.get(API_URL + "user", { headers: authHeader() });

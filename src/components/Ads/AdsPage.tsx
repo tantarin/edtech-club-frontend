@@ -1,32 +1,73 @@
 import React, { useEffect, useState } from "react";
-import Ad from "./Ad";
-import {Box, Container} from "@mui/material"; // Путь к вашему компоненту Ad
+import { Box, Card, CardContent, Container, Typography } from "@mui/material";
+import { getAds } from "../../services/user.service";
+import { makeStyles } from "@mui/styles";
 
 interface AdData {
-    id: number;
-    title: string;
-    description: string;
+    header: string;
+    content: string;
 }
 
 const AdsPage: React.FC = () => {
-    const [ads, setAds] = useState<AdData[]>([]);
+    const [content, setContent] = useState<AdData[]>([]);
 
-    // Загрузка объявлений (замените на свой метод загрузки)
-    const loadAds = async () => {
-        // Ваш код для загрузки объявлений
-        // const data: AdData[] = await fetchData(); // Замените fetchData на ваш метод загрузки данных
-        // setAds(data);
+    const useStyles = makeStyles({
+        root: {
+            minWidth: 275,
+            marginBottom: 16,
+        },
+        header: {
+            fontSize: 18,
+            fontWeight: "bold",
+        },
+        content: {
+            fontSize: 14,
+        },
+    });
+
+    const loadAds = () => {
+        getAds()
+            .then(
+                (response) => {
+                    setContent(response.data);
+                },
+                (error) => {
+                    const _content =
+                        (error.response && error.response.data) ||
+                        error.message ||
+                        error.toString();
+
+                    setContent([{ header: "Error", content: _content }]);
+                }
+            );
     };
 
     useEffect(() => {
         loadAds();
-    }, []); // Загрузка при монтировании компонента
+    }, []);
+
+    const Ad: React.FC<AdData> = ({ header, content }) => {
+        const classes = useStyles();
+
+        return (
+            <Card className={classes.root}>
+                <CardContent>
+                    <Typography className={classes.header} gutterBottom>
+                        {header}
+                    </Typography>
+                    <Typography className={classes.content} color="textSecondary">
+                        {content}
+                    </Typography>
+                </CardContent>
+            </Card>
+        );
+    };
 
     return (
         <Container>
             <Box marginTop={4}>
-                {ads.map((ad) => (
-                    <Ad key={ad.id} title={ad.title} description={ad.description} />
+                {content.map((ad, index) => (
+                    <Ad key={index} {...ad} />
                 ))}
             </Box>
         </Container>
@@ -34,3 +75,4 @@ const AdsPage: React.FC = () => {
 };
 
 export default AdsPage;
+
