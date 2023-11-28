@@ -18,6 +18,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AddNews from "./components/News/AddNews";
 import AdsPage from "./components/Ads/AdsPage";
+import {AboutPage} from "./components/About";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -56,7 +57,7 @@ const App: React.FC = () => {
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to={"/home"} className="nav-link">
+            <Link to={"/about"} className="nav-link">
               О клубе
             </Link>
           </li>
@@ -150,6 +151,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<News />} />
           <Route path="/home" element={<News />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/ads" element={<AdsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

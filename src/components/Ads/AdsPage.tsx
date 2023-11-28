@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Box, Card, CardContent, Container, Typography } from "@mui/material";
+import {Box, Button, Card, CardContent, Container, Typography} from "@mui/material";
 import { getAds } from "../../services/user.service";
 import { makeStyles } from "@mui/styles";
+import {Link} from "react-router-dom";
 
 interface AdData {
     header: string;
@@ -66,6 +67,11 @@ const AdsPage: React.FC = () => {
     return (
         <Container>
             <Box marginTop={4}>
+                <Link to="/addNews" style={{textDecoration: "none"}}>
+                    <Button variant="contained" color="primary" sx={{height: 40}}>
+                        Добавить объявление
+                    </Button>
+                </Link>
                 {content.map((ad, index) => (
                     <Ad key={index} {...ad} />
                 ))}

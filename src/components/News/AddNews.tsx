@@ -1,13 +1,17 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import {addNews} from "../../services/news.service";
+import {useNavigate} from "react-router-dom";
 
 interface FormData {
     header: string;
     content: string;
 }
 
+//TODO rename
 export default function AddNews() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<FormData>({
         header: "",
         content: "",
@@ -21,6 +25,7 @@ export default function AddNews() {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         alert(`Заголовок: ${formData.header}, Контент: ${formData.content}`);
+        addNews(formData).then(() => alert("added")).then(() => navigate("/home"))
     };
 
     return (

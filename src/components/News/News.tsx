@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import {CardActionArea, Button, Box, Grid, Theme, CardActions} from "@mui/material";
 import {Link} from "react-router-dom";
 import {createStyles, makeStyles} from "@mui/styles";
+import {getCurrentUser} from "../../services/auth.service";
+import IUser from "../../types/user.type";
 
 interface IContent {
     content: string;
@@ -16,15 +18,29 @@ interface IContent {
     id: number;
 }
 
+
+
 const News: React.FC = () => {
     const [content, setContent] = useState<IContent[]>([]);
+    const [user, setUser] = useState<IUser | undefined>(() => getCurrentUser());
+
+    useEffect(() => {
+        loadNews();
+        getCurrentUser();
+    }, []);
 
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             gridContainer: {
                 padding: "0 20px"
-            }
-        }));
+            },
+            header: {
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: "2",
+                overflow: "hidden",
+                textOverflow: "ellipsis"
+            }}));
 
     const loadNews = () => {
         getNews()
@@ -42,10 +58,6 @@ const News: React.FC = () => {
                 }
             );
     };
-
-    useEffect(() => {
-        loadNews();
-    }, []);
     const classes = useStyles();
 
     const cards = content.map((item) => {
@@ -63,7 +75,7 @@ const News: React.FC = () => {
                             alt="Placeholder Image"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography gutterBottom variant="h5" component="div" className={classes.header} title={item.header}>
                                 {item.header}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
@@ -87,11 +99,11 @@ const News: React.FC = () => {
                 justifyContent="flex-end"
                 alignItems="flex-end"
             >
-                <Link to="/addNews" style={{textDecoration: "none"}}>
+                {user?.roles && user.roles.includes("ROLE_ADMIN") && <Link to="/addNews" style={{textDecoration: "none"}}>
                     <Button variant="contained" color="primary" sx={{height: 40}}>
                         Добавить новость
                     </Button>
-                </Link>
+                </Link>}
             </Box>
             <Grid container
                   spacing={3}
