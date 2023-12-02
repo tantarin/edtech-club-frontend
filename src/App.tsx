@@ -10,7 +10,7 @@ import IUser from './types/user.type';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import News from "./components/News/News";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
@@ -18,7 +18,8 @@ import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AddNews from "./components/News/AddNews";
 import AdsPage from "./components/Ads/AdsPage";
-import {AboutPage} from "./components/About";
+import {AboutPage} from "./components/About/About";
+import {Button} from "@mui/material";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -51,11 +52,11 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
         <Link to={"/"} className="navbar-brand">
           EdTech Startup Club
         </Link>
-        <div className="navbar-nav mr-auto">
+        <div className="navbar-nav">
           <li className="nav-item">
             <Link to={"/about"} className="nav-link">
               О клубе
@@ -92,33 +93,17 @@ const App: React.FC = () => {
             </Link>
           </li>
 
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/mod"} className="nav-link">
-                Moderator Board
-              </Link>
-            </li>
-          )}
-
-          {showAdminBoard && (
-            <li className="nav-item">
-              <Link to={"/admin"} className="nav-link">
-                Admin Board
-              </Link>
-            </li>
-          )}
-
-          {currentUser && (
-            <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
-                User
-              </Link>
-            </li>
-          )}
+          {/*{currentUser && (*/}
+          {/*  <li className="nav-item">*/}
+          {/*    <Link to={"/user"} className="nav-link">*/}
+          {/*      User*/}
+          {/*    </Link>*/}
+          {/*  </li>*/}
+          {/*)}*/}
         </div>
 
         {currentUser ? (
-          <div className="navbar-nav ml-auto">
+          <div className="navbar-nav">
             <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
                 {currentUser.username}
@@ -126,7 +111,7 @@ const App: React.FC = () => {
             </li>
             <li className="nav-item">
               <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
+                Выход
               </a>
             </li>
           </div>
@@ -134,13 +119,13 @@ const App: React.FC = () => {
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
-                Login
+                <Button variant="outlined">Вход</Button>
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/register"} className="nav-link">
-                Sign Up
+                <Button variant="outlined">Регистрация</Button>
               </Link>
             </li>
           </div>

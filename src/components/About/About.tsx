@@ -1,9 +1,13 @@
 import {FC} from "react";
+import "./About.css"
 
 
 export const AboutPage: FC = () => {
     return (
         <section className="py-8 md:py-16 dark:bg-zinc-900 border-t dark:border-zinc-600 ">
+            <div className="background">
+
+            </div>
             <div className="m3o-container">
                 <h1 className="font-bold text-2xl md:text-3xl text-center mb-8 dark:text-white text-black">
                     О нас

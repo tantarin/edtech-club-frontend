@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import IUser from "../types/user.type";
 import { register } from "../services/auth.service";
+import {redirect} from "react-router-dom";
 
 const Register: React.FC = () => {
   const [successful, setSuccessful] = useState<boolean>(false);
@@ -48,6 +49,8 @@ const Register: React.FC = () => {
       (response) => {
         setMessage(response.data.message);
         setSuccessful(true);
+        console.log("register", response.data)
+        return redirect("/about");
       },
       (error) => {
         const resMessage =
