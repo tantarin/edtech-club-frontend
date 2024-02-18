@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {Box, Button, Card, CardContent, Container, Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, Container,Typography} from "@mui/material";
 import { getAds } from "../../services/user.service";
-import { makeStyles } from "@mui/styles";
 import {Link} from "react-router-dom";
 
 interface AdData {
@@ -11,20 +10,6 @@ interface AdData {
 
 const AdsPage: React.FC = () => {
     const [content, setContent] = useState<AdData[]>([]);
-
-    const useStyles = makeStyles({
-        root: {
-            minWidth: 275,
-            marginBottom: 16,
-        },
-        header: {
-            fontSize: 18,
-            fontWeight: "bold",
-        },
-        content: {
-            fontSize: 14,
-        },
-    });
 
     const loadAds = () => {
         getAds()
@@ -48,15 +33,14 @@ const AdsPage: React.FC = () => {
     }, []);
 
     const Ad: React.FC<AdData> = ({ header, content }) => {
-        const classes = useStyles();
 
         return (
-            <Card className={classes.root}>
+            <Card className={"root"}>
                 <CardContent>
-                    <Typography className={classes.header} gutterBottom>
+                    <Typography className={"header"} gutterBottom>
                         {header}
                     </Typography>
-                    <Typography className={classes.content} color="textSecondary">
+                    <Typography className={"content"} color="textSecondary">
                         {content}
                     </Typography>
                 </CardContent>

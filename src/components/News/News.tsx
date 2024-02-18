@@ -5,11 +5,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import {CardActionArea, Button, Box, Grid, Theme, CardActions} from "@mui/material";
+import {CardActionArea, Button, Box, Grid} from "@mui/material";
 import {Link} from "react-router-dom";
-import {createStyles, makeStyles} from "@mui/styles";
 import {getCurrentUser} from "../../services/auth.service";
 import IUser from "../../types/user.type";
+import "./News.css"
 
 interface IContent {
     content: string;
@@ -17,8 +17,6 @@ interface IContent {
     header: string;
     id: number;
 }
-
-
 
 const News: React.FC = () => {
     const [content, setContent] = useState<IContent[]>([]);
@@ -28,19 +26,6 @@ const News: React.FC = () => {
         loadNews();
         getCurrentUser();
     }, []);
-
-    const useStyles = makeStyles((theme: Theme) =>
-        createStyles({
-            gridContainer: {
-                padding: "0 20px"
-            },
-            header: {
-                display: "-webkit-box",
-                WebkitBoxOrient: "vertical",
-                WebkitLineClamp: "2",
-                overflow: "hidden",
-                textOverflow: "ellipsis"
-            }}));
 
     const loadNews = () => {
         getNews()
@@ -58,7 +43,7 @@ const News: React.FC = () => {
                 }
             );
     };
-    const classes = useStyles();
+ //   const classes = useStyles();
 
     const cards = content.map((item) => {
         return (
@@ -75,7 +60,7 @@ const News: React.FC = () => {
                             alt="Placeholder Image"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div" className={classes.header} title={item.header}>
+                            <Typography gutterBottom variant="h5" component="div" className={"header"} title={item.header}>
                                 {item.header}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
@@ -107,7 +92,7 @@ const News: React.FC = () => {
             </Box>
             <Grid container
                   spacing={3}
-                  className={classes.gridContainer}>
+                  className={"gridContainer"}>
             {cards}
             </Grid>
         </div>
