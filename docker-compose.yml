@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  frontend:
+    container_name: frontend
+    image: frontend
+    build: .
+    ports:
+      - 8081:8081
+    stdin_open: true
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: ["npm", "start", "--force"]

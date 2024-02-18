@@ -1,13 +1,11 @@
-FROM node:14-alpine as build
-WORKDIR /usr/src/app
+FROM node:16-alpine
+WORKDIR /app
 # Cache and Install dependencies
 COPY package.json .
-COPY yarn.lock .
-RUN NODE_ENV=development yarn install
+RUN npm install
 # Copy app files
 COPY . .
-RUN yarn build
 # Expose port
-EXPOSE 3001
+EXPOSE 8081
 # Start the app
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start", "--force"]
