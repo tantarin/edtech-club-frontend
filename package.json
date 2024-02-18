@@ -2,7 +2,10 @@
   "name": "react-typescript-authentication-example",
   "version": "1.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "options": {
+    "allowedHosts": ["localhost", ".localhost"],
+    "proxy": "https://localhost:3000/"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
