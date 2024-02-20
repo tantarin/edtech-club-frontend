@@ -1,7 +1,6 @@
 import axios from "axios";
-//TODO refactor
-const API_URL = "http://localhost:3001/api/test/";
+import {API_URL_TEST} from "../config/config";
 
 export function addNews(data = {}) {
-    return axios.post(API_URL+'news', data)
+    return axios.post(API_URL_TEST+'news', data)
 }

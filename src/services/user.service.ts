@@ -1,28 +1,27 @@
 import axios from "axios";
 import authHeader from "./auth-header";
-
-const API_URL = "http://localhost:3001/api/test/";
+import {API_URL_TEST} from "../config/config";
 
 export const getPublicContent = () => {
-  return axios.get(API_URL + "all");
+  return axios.get(API_URL_TEST + "all");
 };
 
 export const getNews = () => {
-  return axios.get(API_URL + "news");
+  return axios.get(API_URL_TEST + "news");
 };
 
 export const getAds = () => {
-  return axios.get(API_URL + "ads");
+  return axios.get(API_URL_TEST + "ads");
 };
 
 export const getUserBoard = () => {
-  return axios.get(API_URL + "user", { headers: authHeader() });
+  return axios.get(API_URL_TEST + "user", { headers: authHeader() });
 };
 
 export const getModeratorBoard = () => {
-  return axios.get(API_URL + "mod", { headers: authHeader() });
+  return axios.get(API_URL_TEST + "mod", { headers: authHeader() });
 };
 
 export const getAdminBoard = () => {
-  return axios.get(API_URL + "admin", { headers: authHeader() });
+  return axios.get(API_URL_TEST + "admin", { headers: authHeader() });
 };
