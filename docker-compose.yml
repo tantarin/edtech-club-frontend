@@ -1,2 +1,14 @@
 version: "3.8"
 
+services:
+  frontend:
+    container_name: frontend
+    image: frontend
+    build: docker
+    ports:
+      - 3000:3000
+    stdin_open: true
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: [ "npm", "start" ]
