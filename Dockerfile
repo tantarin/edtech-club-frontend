@@ -1,7 +1,7 @@
 FROM node:16-alpine
 WORKDIR /app
 # Cache and Install dependencies
-COPY package.json ./app
+COPY package.json ./
 RUN npm install
 # Copy app files
 COPY ./ ./
