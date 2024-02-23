@@ -17,6 +17,7 @@ import BoardAdmin from "./components/BoardAdmin";
 
 import EventBus from "./common/EventBus";
 import AddNews from "./components/News/AddNews";
+import AddAds from "./components/Ads/AddAds";
 import AdsPage from "./components/Ads/AdsPage";
 import {AboutPage} from "./components/About/About";
 import {Button} from "@mui/material";
@@ -145,6 +146,7 @@ const App: React.FC = () => {
           <Route path="/mod" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />
           <Route path="/addNews" element={<AddNews />} />
+          <Route path="/addAds" element={<AddAds />} />
         </Routes>
       </div>
     </div>
