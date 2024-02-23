@@ -25,7 +25,7 @@ export default function AddNews() {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         alert(`Заголовок: ${formData.header}, Контент: ${formData.content}`);
-        addNews(formData).then(() => alert("added")).then(() => navigate("/home"))
+        addNews(formData).then(() => alert("added")).then(() => navigate("/news"))
     };
 
     return (
