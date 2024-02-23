@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import {Box, Button, Card, CardContent, Container,Typography} from "@mui/material";
 import { getAds } from "../../services/user.service";
 import {Link} from "react-router-dom";
+import IUser from "../../types/user.type";
+import {getCurrentUser} from "../../services/auth.service";
 
 interface AdData {
     header: string;
@@ -10,6 +12,7 @@ interface AdData {
 
 const AdsPage: React.FC = () => {
     const [content, setContent] = useState<AdData[]>([]);
+    const [user, setUser] = useState<IUser | undefined>(() => getCurrentUser());
 
     const loadAds = () => {
         getAds()
@@ -51,11 +54,11 @@ const AdsPage: React.FC = () => {
     return (
         <Container>
             <Box marginTop={4}>
-                <Link to="/addAds" style={{textDecoration: "none"}}>
+                {user?.roles && user.roles.includes("ROLE_ADMIN") && <Link to="/addAds" style={{textDecoration: "none"}}>
                     <Button variant="contained" color="primary" sx={{height: 40}}>
                         Добавить объявление
                     </Button>
-                </Link>
+                </Link>}
                 {content.map((ad, index) => (
                     <Ad key={index} {...ad} />
                 ))}

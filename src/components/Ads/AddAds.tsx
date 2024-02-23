@@ -11,7 +11,7 @@ interface FormData {
 }
 
 //TODO rename
-export default function AddNews() {
+export default function AddAds() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState<FormData>({
         header: "",
