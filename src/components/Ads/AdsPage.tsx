@@ -51,7 +51,7 @@ const AdsPage: React.FC = () => {
     return (
         <Container>
             <Box marginTop={4}>
-                <Link to="/addNews" style={{textDecoration: "none"}}>
+                <Link to="/addAds" style={{textDecoration: "none"}}>
                     <Button variant="contained" color="primary" sx={{height: 40}}>
                         Добавить объявление
                     </Button>
