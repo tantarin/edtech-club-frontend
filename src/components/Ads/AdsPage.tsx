@@ -67,7 +67,7 @@ const AdsPage: React.FC = () => {
             </Button>
           </Link>
         )}
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {Array.isArray(content) &&
             content?.map((ad, index) => <Ad key={index} {...ad} />)}
         </div>
