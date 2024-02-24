@@ -4,3 +4,6 @@
 * React
 * Typescript
 
+  ### Запустить:
+npm start
+
