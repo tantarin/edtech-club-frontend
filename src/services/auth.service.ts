@@ -1,5 +1,5 @@
 import axios from "axios";
-import {API_URL} from "../config/config";
+import { API_URL } from "../config/config";
 
 export const register = (username: string, email: string, password: string) => {
   return axios.post(API_URL + "register", {
@@ -29,15 +29,8 @@ export const logout = () => {
 };
 
 export const getCurrentUser = () => {
-  return({
-    id: 1,
-    username: 'nik',
-    email: 'huki8998@gmail.com',
-    password: '124',
-    roles: ['ROLE_ADMIN']
-  })
-  // const userStr = localStorage.getItem("user");
-  // if (userStr) return JSON.parse(userStr);
-  //
-  // return null;
+  const userStr = localStorage.getItem("user");
+  if (userStr) return JSON.parse(userStr);
+
+  return null;
 };
