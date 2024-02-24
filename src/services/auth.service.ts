@@ -29,8 +29,15 @@ export const logout = () => {
 };
 
 export const getCurrentUser = () => {
-  const userStr = localStorage.getItem("user");
-  if (userStr) return JSON.parse(userStr);
-
-  return null;
+  return({
+    id: 1,
+    username: 'nik',
+    email: 'huki8998@gmail.com',
+    password: '124',
+    roles: ['ROLE_ADMIN']
+  })
+  // const userStr = localStorage.getItem("user");
+  // if (userStr) return JSON.parse(userStr);
+  //
+  // return null;
 };

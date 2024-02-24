@@ -4,11 +4,13 @@ import { getAds } from "../../services/user.service";
 import {Link} from "react-router-dom";
 import IUser from "../../types/user.type";
 import {getCurrentUser} from "../../services/auth.service";
+import clsx from "clsx";
 
 interface AdData {
     header: string;
     content: string;
 }
+
 
 const AdsPage: React.FC = () => {
     const [content, setContent] = useState<AdData[]>([]);
@@ -26,7 +28,7 @@ const AdsPage: React.FC = () => {
                         error.message ||
                         error.toString();
 
-                    setContent([{ header: "Error", content: _content }]);
+                    // setContent([{ header: "Error", content: _content }]);
                 }
             );
     };
@@ -38,7 +40,7 @@ const AdsPage: React.FC = () => {
     const Ad: React.FC<AdData> = ({ header, content }) => {
 
         return (
-            <Card className={"root"}>
+            <div className={clsx("root", "border border-gray rounded-[10px]")}>
                 <CardContent>
                     <Typography className={"header"} gutterBottom>
                         {header}
@@ -47,22 +49,24 @@ const AdsPage: React.FC = () => {
                         {content}
                     </Typography>
                 </CardContent>
-            </Card>
+            </div>
         );
     };
 
     return (
         <Container>
-            <Box marginTop={4}>
+            <div className="gap-4 flex flex-col mt-2">
                 {user?.roles && user.roles.includes("ROLE_ADMIN") && <Link to="/addAds" style={{textDecoration: "none"}}>
-                    <Button variant="contained" color="primary" sx={{height: 40}}>
+                    <Button variant="contained" color="primary" sx={{height: 50}}>
                         Добавить объявление
                     </Button>
                 </Link>}
-                {Array.isArray(content) && content?.map((ad, index) => (
-                    <Ad key={index} {...ad} />
-                ))}
-            </Box>
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+                    {Array.isArray(content) && content?.map((ad, index) => (
+                        <Ad key={index} {...ad} />
+                    ))}
+                </div>
+            </div>
         </Container>
     );
 };

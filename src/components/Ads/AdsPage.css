@@ -1,13 +1,15 @@
 .root {
     min-width: 275px; /* Указываем px для минимальной ширины */
     margin-bottom: 16px; /* И для отступа снизу тоже */
+    border-radius: 0px;
 }
 
 .header {
-    font-size: 18px; /* px для размера шрифта */
-    font-weight: bold; /* bold без кавычек */
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
 }
 
 .content {
-    font-size: 14px; /* Исправлено на font-size и добавлены px */
+    font-size: 16px;
 }
