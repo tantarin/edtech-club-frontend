@@ -43,35 +43,6 @@ const News: React.FC = () => {
                 }
             );
     };
- //   const classes = useStyles();
-
-    const cards = content.map((item) => {
-        return (
-                <Grid item xs={12} sm={6} md={4} >
-                <Card
-                    key={item.id}
-                    sx={{maxWidth: 345, margin: "0 2px 2px 0", maxHeight: 500}} style={{height: "100%"}}
-                >
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://via.placeholder.com/345x140" // Замените этот URL на требуемый URL изображения
-                            alt="Placeholder Image"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div" className={"header"} title={item.header}>
-                                {item.header}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {item.content}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-                </Grid>
-        );
-    });
 
     return (
         <div>
@@ -92,8 +63,34 @@ const News: React.FC = () => {
             </Box>
             <Grid container
                   spacing={3}
-                  className={"gridContainer"}>
-            {cards}
+                  className={"px-0"}>
+                {Array.isArray(content) && content?.map((item) => {
+                    return (
+                        <Grid item xs={12} sm={6} md={4} >
+                            <Card
+                                key={item.id}
+                                sx={{margin: "0 2px 2px 0", maxHeight: 500}} style={{height: "100%"}}
+                            >
+                                <CardActionArea>
+                                    <CardMedia
+                                        component="img"
+                                        height="140"
+                                        image="https://via.placeholder.com/345x140" // Замените этот URL на требуемый URL изображения
+                                        alt="Placeholder Image"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div" className={"header"} title={item.header}>
+                                            {item.header}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {item.content}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+                    );
+                })}
             </Grid>
         </div>
     );

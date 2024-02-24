@@ -1,142 +1,116 @@
 import React from "react";
 import { getCurrentUser } from "../../services/auth.service";
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
-import { TextareaAutosize as BaseTextareaAutosize } from '@mui/base/TextareaAutosize';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { styled } from '@mui/material/styles';
-import userPhoto from "../../assets/userPhoto.jpg";
-import {Button, Grid, Paper} from "@mui/material";
-import "./Profile.css"
+import {Button, Grid} from "@mui/material";
+import { Input  } from '@mui/base/Input';
+import styles from "./Profile.module.css"
+import {UserPhotoImg} from "../../assets/img";
+import clsx from "clsx";
+import TextField from "@mui/material/TextField";
 
+const labelClass = "text-gray text-sm m-0"
 
+const blue = {
+    100: '#DAECFF',
+    200: '#b6daff',
+    400: '#3399FF',
+    500: '#007FFF',
+    600: '#0072E5',
+    900: '#003A75',
+};
+
+const grey = {
+    50: '#F3F6F9',
+    100: '#E5EAF2',
+    200: '#DAE2ED',
+    300: '#C7D0DD',
+    400: '#B0B8C4',
+    500: '#9DA8B7',
+    600: '#6B7A90',
+    700: '#434D5B',
+    800: '#303740',
+    900: '#1C2025',
+};
 const Profile: React.FC = () => {
   const currentUser = getCurrentUser();
-    const [age, setAge] = React.useState('');
+    const [age, setAge] = React.useState('none');
 
     const handleChange = (event: SelectChangeEvent) => {
         setAge(event.target.value);
     };
 
-    const blue = {
-        100: '#DAECFF',
-        200: '#b6daff',
-        400: '#3399FF',
-        500: '#007FFF',
-        600: '#0072E5',
-        900: '#003A75',
-    };
-
-    const grey = {
-        50: '#F3F6F9',
-        100: '#E5EAF2',
-        200: '#DAE2ED',
-        300: '#C7D0DD',
-        400: '#B0B8C4',
-        500: '#9DA8B7',
-        600: '#6B7A90',
-        700: '#434D5B',
-        800: '#303740',
-        900: '#1C2025',
-    };
-
-    const Textarea = styled(BaseTextareaAutosize)(
-        ({ theme }) => `
-    width: 320px;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
-
-    &:hover {
-      border-color: ${blue[400]};
-    }
-
-    &:focus {
-      border-color: ${blue[400]};
-      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
-    }
-
-    // firefox
-    &:focus-visible {
-      outline: 0;
-    }
-  `,
-    );
-
 
 
     return (
-      <>
-          <div style={{width: "100%",
-          display: "flex",
-          justifyContent: "center"}}>
-            <h2 className="mt-5">Мой профиль</h2>
-          </div>
-          <div className="row justify-content-around mt-5 user-info">
-              <div className="col-12 col-md-3">
-                  <figure className='avatar avatar-profile'>
-                      <img className="rounded-circle img-fluid" src={userPhoto}
-                           alt={`The image alt tag for the big image`}/>
-                  </figure>
-                  <Button variant="contained" href="#contained-buttons">
-                      Редактировать профиль
-                  </Button>
-              </div>
+        <>
+            <style>
+                {`body{
+                    background-color: rgb(245 245 245);
+                }`}
+            </style>
+              <div className="flex items-start mx-auto max-w-[900px] flex-col  relative md:gap-16 gap-8 pb-12 -mt-4">
+                  <div className={styles.top}>
+                      <div className={clsx("shrink-0 max-w-[300px] mx-auto", styles.avatar)}>
+                          <figure className='avatar avatar-profile aspect-square m-0'>
+                              <img className="rounded-circle img-fluid aspect-square" src={UserPhotoImg}
+                                   alt={`The image alt tag for the big image`}/>
+                          </figure>
+                          <a className="w-full text-white font-bold !no-underline rounded-circle"
+                             href="#contained-buttons">
+                              Обновить аватар
+                          </a>
+                      </div>
+                  </div>
+                  <div className="flex flex-col md:gap-8 gap-4 w-full">
+                      <div className="flex justify-center w-full flex-col gap-4">
+                          <div className="md:text-left text-center">
+                              <h4 className={labelClass}>Email</h4>
+                              <p className="text-2xl">{currentUser.email}</p>
+                          </div>
+                          <div className="md:text-left text-center">
+                              <h4 className={labelClass}>Username</h4>
+                              <p className="text-2xl">{currentUser.username}</p>
+                          </div>
+                      </div>
+                      <div className="w-full">
+                          <h4 className={labelClass}>Должность</h4>
+                          <FormControl className="min-w-[120px] w-full mt-2">
+                              <Select
+                                  value={age}
+                                  variant="filled"
+                                  onChange={handleChange}
+                              >
+                                  <MenuItem value="none">
+                                      <em>None</em>
+                                  </MenuItem>
+                                  <MenuItem value={10}>Студент</MenuItem>
+                                  <MenuItem value={20}>Преподаватель</MenuItem>
+                                  <MenuItem value={30}>Гость</MenuItem>
+                              </Select>
+                          </FormControl>
+                      </div>
+                      <div>
+                          <h4 className={labelClass}>Обо мне </h4>
+                          <TextField multiline variant="filled" className="mt-2 w-full" rows={4}
+                                     placeholder="Minimum 3 rows"/>
+                      </div>
 
-              <div className="col-12 col-md-5">
-                  <h4 className={"inProfileLabel"}>Username</h4>
-                  <p>{currentUser.username}</p>
-
-                  <h4 className={"inProfileLabel"}>Email</h4>
-                  <p>{currentUser.email}</p>
-
-                  <h4 className={"inProfileLabel"}>Должность</h4>
-                  <FormControl sx={{minWidth: 120 }}>
-                      <InputLabel id="demo-simple-select-helper-label">Должность</InputLabel>
-                      <Select
-                          labelId="demo-simple-select-helper-label"
-                          id="demo-simple-select-helper"
-                          value={age}
-                          label="Должность"
-                          onChange={handleChange}
-                      >
-                          <MenuItem value="">
-                              <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={10}>Студент</MenuItem>
-                          <MenuItem value={20}>Преподаватель</MenuItem>
-                          <MenuItem value={30}>Гость</MenuItem>
-                      </Select>
-                  </FormControl>
-
-                  <h4 className={"inProfileLabel"}>Обо мне </h4>
-                  <Textarea aria-label="minimum height" minRows={3} placeholder="Minimum 3 rows" />
-
-                  <Grid container direction="column" spacing={2}>
-                      <Grid item>
-                          <Button variant="contained" href="#contained-buttons">
+                      <div className="flex md:flex-row flex-col gap-4">
+                          <Button variant="outlined" color="info" className="w-full" size="large" href="#contained-buttons">
                               Мои объявления
                           </Button>
-                      </Grid>
-                      <Grid item>
-                          <Button variant="contained" href="#contained-buttons">
+                          <Button variant="outlined" color="info" className="w-full" size="large" href="#contained-buttons">
                               Изменить пароль
                           </Button>
-                      </Grid>
-                  </Grid>
+                          <Button variant="outlined" color="info" className="w-full" size="large" href="#contained-buttons">
+                              Редактировать
+                          </Button>
+                      </div>
+                  </div>
               </div>
-          </div>
-      </>
-  );
+            </>
+    );
 };
-
 export default Profile;
