@@ -21,10 +21,11 @@ import AddAds from "./components/Ads/AddAds";
 import AdsPage from "./components/Ads/AdsPage";
 import {AboutPage} from "./components/About/About";
 import {Button} from "@mui/material";
+import {urls} from "./config/config";
+import Header from "./components/Header/Header";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
-  console.log("showModeratorBoard", showModeratorBoard)
   const [showAdminBoard, setShowAdminBoard] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<IUser | undefined>(undefined);
 
@@ -52,101 +53,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
-        <Link to={"/"} className="navbar-brand">
-          EdTech Startup Club
-        </Link>
-        <div className="navbar-nav">
-          <li className="nav-item">
-            <Link to={"/about"} className="nav-link">
-              О клубе
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link to={"/news"} className="nav-link">
-              Мероприятия
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link to={"/ads"} className="nav-link">
-              Поиск команды
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link to={"/ads"} className="nav-link">
-              Акселератор
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link to={"/ads"} className="nav-link">
-              Дайджест
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link to={"/ads"} className="nav-link">
-              Банк знаний
-            </Link>
-          </li>
-
-          {/*{currentUser && (*/}
-          {/*  <li className="nav-item">*/}
-          {/*    <Link to={"/user"} className="nav-link">*/}
-          {/*      User*/}
-          {/*    </Link>*/}
-          {/*  </li>*/}
-          {/*)}*/}
-        </div>
-
-        {currentUser ? (
-          <div className="navbar-nav">
-            <li className="nav-item">
-              <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
-                Выход
-              </a>
-            </li>
-          </div>
-        ) : (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/login"} className="nav-link">
-                <Button variant="outlined">Вход</Button>
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/register"} className="nav-link">
-                <Button variant="outlined">Регистрация</Button>
-              </Link>
-            </li>
-          </div>
-        )}
-      </nav>
-
+    <div className="max-w-full">
+      <Header currentUser={currentUser} logOut={logOut}/>
       <div className="container mt-3">
         <Routes>
-          <Route path="/" element={<AboutPage />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/ads" element={<AdsPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/user" element={<BoardUser />} />
-          <Route path="/mod" element={<BoardModerator />} />
-          <Route path="/admin" element={<BoardAdmin />} />
-          <Route path="/addNews" element={<AddNews />} />
-          <Route path="/addAds" element={<AddAds />} />
+          <Route path={urls.main} element={<AboutPage />} />
+          <Route path={urls.news} element={<News />} />
+          <Route path={urls.about} element={<AboutPage />} />
+          <Route path={urls.ads} element={<AdsPage />} />
+          <Route path={urls.login} element={<Login />} />
+          <Route path={urls.register} element={<Register />} />
+          <Route path={urls.profile} element={<Profile />} />
+          <Route path={urls.user} element={<BoardUser />} />
+          <Route path={urls.mod} element={<BoardModerator />} />
+          <Route path={urls.admin} element={<BoardAdmin />} />
+          <Route path={urls.addNews} element={<AddNews />} />
+          <Route path={urls.addAds} element={<AddAds />} />
         </Routes>
       </div>
     </div>

@@ -1,28 +1,28 @@
 import {FC} from "react";
-import "./About.css"
+import styles from  "./About.module.css"
+import Contacts from "./Contacts";
+import Info from "./Info";
+import {HerzenImg} from "../../assets/img";
 
 
 export const AboutPage: FC = () => {
     return (
-        <section className="py-8 md:py-16 dark:bg-zinc-900 border-t dark:border-zinc-600 ">
-            <div className="background">
-
-            </div>
-            <div className="m3o-container">
-                <h1 className="font-bold text-2xl md:text-3xl text-center mb-8 dark:text-white text-black">
-                    О нас
-                </h1>
-                <div className="md:grid md:grid-cols-1 m-auto max-w-md md:gap-4 text-zinc-800 font-light dark:text-zinc-300">
-                    <div className="mb-6 md:mb-0">
-                        <p className="mb-4">
-                            Площадка для вовлечения студентов и преподавателей в инновационную деятельность по разработке педагогических технологий,
-                            основанных на использовании новых технических и технологических решений - искусственного интеллекта,
-                            машинного обучения, виртуальной реальности, робототехники, новых материалов. Идея создания клуба
-                            заключается в кооперации специалистов, обладающих взаимодополняющими компетенциями, - педагогов,
-                            экономистов, программистов, дизайнеров - для создания EdTech-проектов, поиска инвесторов, заказчиков,
-                            грантодателей, партнеров и наставников, развития проектных команд, подготовки и продвижения этих проектов.
-                        </p>
+        <section className="py-4 md:py-16">
+            <div className="d-flex md:flex-row flex-col gap-8 items-start relative">
+                <div>
+                    <h1 className="font-bold text-3xl md:text-4xl md:mt-3 mb-9 text-black">
+                        О нас, Мы площадка для вовлечения студентов и преподавателей
+                    </h1>
+                    <div
+                        className="text-zinc-800 font-light ">
+                        <div className="mb-6 md:mb-0">
+                            <Info/>
+                        </div>
                     </div>
+                </div>
+                <div className={styles.right}>
+                    <img src={HerzenImg} className={styles.background} alt="Герцен" />
+                    <Contacts/>
                 </div>
             </div>
         </section>

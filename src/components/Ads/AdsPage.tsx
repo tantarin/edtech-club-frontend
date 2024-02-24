@@ -59,7 +59,7 @@ const AdsPage: React.FC = () => {
                         Добавить объявление
                     </Button>
                 </Link>}
-                {content.map((ad, index) => (
+                {Array.isArray(content) && content?.map((ad, index) => (
                     <Ad key={index} {...ad} />
                 ))}
             </Box>

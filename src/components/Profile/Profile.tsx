@@ -2,14 +2,13 @@ import React from "react";
 import { getCurrentUser } from "../../services/auth.service";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import { TextareaAutosize as BaseTextareaAutosize } from '@mui/base/TextareaAutosize';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
-import userPhoto from "../../assets/userPhoto.jpg";
-import {Button, Grid, Paper} from "@mui/material";
+import {Button, Grid} from "@mui/material";
 import "./Profile.css"
+import {UserPhotoImg} from "../../assets/img";
 
 
 const Profile: React.FC = () => {
@@ -84,7 +83,7 @@ const Profile: React.FC = () => {
           <div className="row justify-content-around mt-5 user-info">
               <div className="col-12 col-md-3">
                   <figure className='avatar avatar-profile'>
-                      <img className="rounded-circle img-fluid" src={userPhoto}
+                      <img className="rounded-circle img-fluid" src={UserPhotoImg}
                            alt={`The image alt tag for the big image`}/>
                   </figure>
                   <Button variant="contained" href="#contained-buttons">
