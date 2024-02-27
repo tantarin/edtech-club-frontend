@@ -14,6 +14,7 @@ import { getCurrentUser } from "../../services/auth.service";
 import clsx from "clsx";
 
 interface AdData {
+    id: bigint;
   header: string;
   content: string;
 }
@@ -32,8 +33,8 @@ const AdsPage: React.FC = () => {
           (error.response && error.response.data) ||
           error.message ||
           error.toString();
-
-        setContent([{ header: "Error", content: _content }]);
+          const errorId = error.response ? error.response.data.id : null;
+          setContent([{ id: errorId, header: "Error", content: _content }]);
       }
     );
   };
@@ -42,7 +43,7 @@ const AdsPage: React.FC = () => {
     loadAds();
   }, []);
 
-  const Ad: React.FC<AdData> = ({ header, content }) => {
+  const Ad: React.FC<AdData> = ({ id, header, content }) => {
     return (
       <div className={clsx("root", "border border-gray rounded-[10px]")}>
         <a
@@ -64,7 +65,7 @@ const AdsPage: React.FC = () => {
             <div className="flex-shrink-0 hidden ml-3 sm:block">
               <img
                   className="object-cover w-16 h-16 rounded-lg shadow-sm"
-                  src="https://github.com/creativetimofficial/argon-design-system/blob/master/assets/img/faces/team-2.jpg?raw=true"
+                  src={`https://github.com/creativetimofficial/argon-design-system/blob/master/assets/img/faces/team-${id}.jpg?raw=true`}
                   alt=""
               />
             </div>
