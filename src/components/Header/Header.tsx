@@ -74,12 +74,13 @@ export default function Header(props: HeaderProps) {
               >
                 {currentUser.username}
               </Link>
-              <button
-                onClick={logOut}
-                className="text-sm font-semibold leading-6 text-white"
-              >
-                Выход <span aria-hidden="true">&rarr;</span>
-              </button>
+              <Link to={urls.register} className="text-sm font-semibold leading-6 text-white">
+                <button
+                    onClick={logOut}
+                    className="text-sm font-semibold leading-6 text-white">
+                  Выход <span aria-hidden="true">&rarr;</span>
+                </button>
+              </Link>
             </div>
           ) : (
             <Link
