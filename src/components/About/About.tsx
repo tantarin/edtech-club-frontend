@@ -1,9 +1,10 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import "./About.css";
 import managerImage from "./cheff.jpg";
 import InstagramIcon from "./icons/InstagramIcon";
 import PhoneIcon from "./icons/PhoneIcon";
 import MailIcon from "./icons/MailIcon";
+import {Link} from "react-router-dom";
 
 export const AboutPage: FC = () => {
   return (
@@ -64,9 +65,7 @@ export const AboutPage: FC = () => {
                 образовательным материалам сообщества: журналам, видео и
                 новостям!
               </p>
-              <button className="about-more__card__button">
-                Зарегистрироваться
-              </button>
+                <Link className="about-more__card__button" to={"/register"}>Зарегистрироваться</Link>
             </div>
           </div>
         </div>
