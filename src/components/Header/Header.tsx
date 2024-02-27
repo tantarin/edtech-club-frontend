@@ -136,20 +136,20 @@ export default function Header(props: HeaderProps) {
               <div className="py-6">
                 {currentUser ? (
                   <div>
-                    <Link to={urls.profile}>
-                      {currentUser.username || "Testirovchik"}
-                    </Link>
+                    <Link to={urls.profile}> {currentUser.username || "Testirovchik"}</Link>
                     <button onClick={logOut}>Выход</button>
                   </div>
                 ) : (
-                  <Link
-                    to="/login"
-                    className="text-sm font-semibold leading-6 text-white"
-                  >
+                  <Link to="/login" className="text-sm font-semibold leading-6 text-white">
                     Вход <span aria-hidden="true">&rarr;</span>
                   </Link>
                 )}
               </div>
+              <li className="py-6">
+                <Link to={urls.register} className="text-sm font-semibold leading-6 text-white">
+                  Регистрация <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </li>
             </div>
           </div>
         </Dialog.Panel>
