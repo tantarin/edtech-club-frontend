@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -112,6 +112,7 @@ const Login: React.FC<Props> = () => {
               )}
             </Form>
           </Formik>
+        <Link className='mx-auto' to={"/register"}>Register</Link>
         </div>
       </div>
     </div>

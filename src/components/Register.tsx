@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import IUser from "../types/user.type";
 import { register } from "../services/auth.service";
-import { redirect } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 const Register: React.FC = () => {
   const [successful, setSuccessful] = useState<boolean>(false);
@@ -139,6 +139,9 @@ const Register: React.FC = () => {
               )}
             </Form>
           </Formik>
+          <Link className="mx-auto" to={"/login"}>
+            Login
+          </Link>
         </div>
       </div>
     </div>
