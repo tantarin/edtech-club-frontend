@@ -3,8 +3,7 @@
 
 .about-hero {
   width: 100%;
-  min-height: 600px;
-  height: calc(100vh - 78px);
+  height: 50vh; /* Занимает 50% высоты экрана */
   position: relative;
   z-index: 10;
 }
@@ -12,11 +11,13 @@
 .background {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 50vh; /* Занимает 50% высоты экрана */
   z-index: -10;
   background-image: url("../../assets/img/herzen.jpg");
+  background-size: cover; /* Заполняем фон, сохраняя пропорции */
   filter: brightness(0.3);
 }
+
 
 .about-container {
   width: 100%;

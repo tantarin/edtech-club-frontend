@@ -39,7 +39,7 @@ export const AboutPage: FC = () => {
             <h2 className="about-more__title">EduTech Club</h2>
             <div className="about-more__description">
               <p>
-                Особым направлением деятельности СберУниверситета является
+                Особым направлением деятельности является
                 развитие экспертизы в области EduTech.
               </p>
               <p>
@@ -80,8 +80,8 @@ export const AboutPage: FC = () => {
                 <b>Игорь Всеволод</b>
               </h4>
               <p className="about__manager-description">
-                Предприниматель, и просто хороший руководитель. Сооавтор{" "}
-                <b>этого</b> сайта
+                Руководитель{" "}
+                <b>этого</b> клуба.
               </p>
             </div>
           </div>
