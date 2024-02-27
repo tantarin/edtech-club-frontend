@@ -1,35 +1,27 @@
-.inProfileLabel {
-    color: #6B7A90;
+.ChangeAvatarButton {
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.top{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    @apply py-8 bg-neutral-700 -mb-4;
+.ChangeAvatarButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.avatar{
-    position: relative;
+.SaveButton {
+  border-radius: 6px;
+  background-color: rgb(75, 0, 130);
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: white;
 }
 
-.avatar a{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all .3s;
-    visibility: hidden;
-    background: rgba(0,0,0, .4) !important;
-}
-
-.avatar:hover a{
-    opacity: 1;
-    visibility: visible;
+.SaveButton:hover {
+  background-color: rgb(75, 0, 100);
 }

@@ -1,116 +1,208 @@
-import React from "react";
+import { ChangeEvent, useState } from "react";
+import { UserPhotoImg } from "../../assets/img";
+import styles from "./Profile.module.css";
 import { getCurrentUser } from "../../services/auth.service";
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import {Button, Grid} from "@mui/material";
-import { Input  } from '@mui/base/Input';
-import styles from "./Profile.module.css"
-import {UserPhotoImg} from "../../assets/img";
-import clsx from "clsx";
-import TextField from "@mui/material/TextField";
 
-const labelClass = "text-gray text-sm m-0"
-
-const blue = {
-    100: '#DAECFF',
-    200: '#b6daff',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
-};
-
-const grey = {
-    50: '#F3F6F9',
-    100: '#E5EAF2',
-    200: '#DAE2ED',
-    300: '#C7D0DD',
-    400: '#B0B8C4',
-    500: '#9DA8B7',
-    600: '#6B7A90',
-    700: '#434D5B',
-    800: '#303740',
-    900: '#1C2025',
-};
-const Profile: React.FC = () => {
+export default function Profile() {
   const currentUser = getCurrentUser();
-    const [age, setAge] = React.useState('none');
+  const [age, setAge] = useState("none");
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value);
-    };
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setAge(event.target.value);
+  };
 
-
-
-    return (
-        <>
-            <style>
-                {`body{
-                    background-color: rgb(245 245 245);
-                }`}
-            </style>
-              <div className="flex items-start mx-auto max-w-[900px] flex-col  relative md:gap-16 gap-8 pb-12 -mt-4">
-                  <div className={styles.top}>
-                      <div className={clsx("shrink-0 max-w-[300px] mx-auto", styles.avatar)}>
-                          <figure className='avatar avatar-profile aspect-square m-0'>
-                              <img className="rounded-circle img-fluid aspect-square" src={UserPhotoImg}
-                                   alt={`The image alt tag for the big image`}/>
-                          </figure>
-                          <a className="w-full text-white font-bold !no-underline rounded-circle"
-                             href="#contained-buttons">
-                              Обновить аватар
-                          </a>
-                      </div>
+  return (
+    <>
+      <div>
+        <div className="">
+          <main className="bg-[#0F1727] border-t border-gray">
+            <div className="max-w-[1280px] mx-auto">
+              <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+                <div>
+                  <h2 className="text-base font-semibold leading-7 text-white">
+                    Мои данные
+                  </h2>
+                  <div className="col-span-full flex items-center gap-x-8">
+                    <img
+                      src={UserPhotoImg}
+                      alt=""
+                      className="h-full w-full flex-none rounded-xl bg-gray-800 object-cover"
+                    />
                   </div>
-                  <div className="flex flex-col md:gap-8 gap-4 w-full">
-                      <div className="flex justify-center w-full flex-col gap-4">
-                          <div className="md:text-left text-center">
-                              <h4 className={labelClass}>Email</h4>
-                              <p className="text-2xl">{currentUser.email}</p>
-                          </div>
-                          <div className="md:text-left text-center">
-                              <h4 className={labelClass}>Username</h4>
-                              <p className="text-2xl">{currentUser.username}</p>
-                          </div>
-                      </div>
-                      <div className="w-full">
-                          <h4 className={labelClass}>Должность</h4>
-                          <FormControl className="min-w-[120px] w-full mt-2">
-                              <Select
-                                  value={age}
-                                  variant="filled"
-                                  onChange={handleChange}
-                              >
-                                  <MenuItem value="none">
-                                      <em>None</em>
-                                  </MenuItem>
-                                  <MenuItem value={10}>Студент</MenuItem>
-                                  <MenuItem value={20}>Преподаватель</MenuItem>
-                                  <MenuItem value={30}>Гость</MenuItem>
-                              </Select>
-                          </FormControl>
-                      </div>
-                      <div>
-                          <h4 className={labelClass}>Обо мне </h4>
-                          <TextField multiline variant="filled" className="mt-2 w-full" rows={4}
-                                     placeholder="Minimum 3 rows"/>
-                      </div>
+                </div>
 
-                      <div className="flex md:flex-row flex-col gap-4">
-                          <Button variant="outlined" color="info" className="w-full" size="large" href="#contained-buttons">
-                              Мои объявления
-                          </Button>
-                          <Button variant="outlined" color="info" className="w-full" size="large" href="#contained-buttons">
-                              Изменить пароль
-                          </Button>
-                          <Button variant="outlined" color="info" className="w-full" size="large" href="#contained-buttons">
-                              Редактировать
-                          </Button>
+                <form className="md:col-span-2">
+                  <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        Email
+                      </label>
+                      <div className="mt-2">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 pl-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          placeholder={currentUser ? currentUser.email : ""}
+                        />
                       </div>
+                    </div>
+
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="username"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        Username
+                      </label>
+                      <div className="mt-2">
+                        <div className="flex rounded-md bg-white/5 ring-1 ring-inset ring-white/10 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                          <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            autoComplete="username"
+                            className="flex-1 border-0 bg-transparent py-1.5 pl-2 text-white focus:ring-0 sm:text-sm sm:leading-6"
+                            placeholder={
+                              currentUser ? currentUser.username : ""
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="position"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        Должность
+                      </label>
+                      <div className="mt-2">
+                        <select
+                          id="position"
+                          name="position"
+                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black"
+                          value={age}
+                          onChange={handleChange}
+                        >
+                          <option value="none">
+                            <em>None</em>
+                          </option>
+                          <option value="10">Студент</option>
+                          <option value="20">Преподаватель</option>
+                          <option value="30">Гость</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="about-me"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        Обо мне
+                      </label>
+                      <div className="mt-2">
+                        <div className="flex rounded-md bg-white/5 ring-1 ring-inset ring-white/10 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                          <textarea
+                            name="about-me"
+                            id="about-me"
+                            className="flex-1 border-0 bg-transparent py-1.5 pl-2 text-white focus:ring-0 sm:text-sm sm:leading-6"
+                            placeholder="Minimum 3 rows"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <div className="mt-8 flex">
+                    <button type="submit" className={styles.SaveButton}>
+                      Сохранить
+                    </button>
+                  </div>
+                </form>
               </div>
-            </>
-    );
-};
-export default Profile;
+
+              <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+                <div>
+                  <h2 className="text-base font-semibold leading-7 text-white">
+                    Изменить пароль
+                  </h2>
+                </div>
+
+                <form className="md:col-span-2">
+                  <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="current-password"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        Current password
+                      </label>
+                      <div className="mt-2">
+                        <input
+                          id="current-password"
+                          name="current_password"
+                          type="password"
+                          autoComplete="current-password"
+                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 pl-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="new-password"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        New password
+                      </label>
+                      <div className="mt-2">
+                        <input
+                          id="new-password"
+                          name="new_password"
+                          type="password"
+                          autoComplete="new-password"
+                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 pl-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="col-span-full">
+                      <label
+                        htmlFor="confirm-password"
+                        className="block text-sm font-medium leading-6 text-white"
+                      >
+                        Confirm password
+                      </label>
+                      <div className="mt-2">
+                        <input
+                          id="confirm-password"
+                          name="confirm_password"
+                          type="password"
+                          autoComplete="new-password"
+                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 pl-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex">
+                    <button type="submit" className={styles.SaveButton}>
+                      Сохранить
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </>
+  );
+}

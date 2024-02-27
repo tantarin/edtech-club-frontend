@@ -1,61 +1,65 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import {addNews} from "../../services/news.service";
-import {useNavigate} from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { addNews } from "../../services/news.service";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
-    header: string;
-    content: string;
+  header: string;
+  content: string;
 }
 
 //TODO rename
 export default function AddNews() {
-    const navigate = useNavigate();
-    const [formData, setFormData] = useState<FormData>({
-        header: "",
-        content: "",
-    });
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<FormData>({
+    header: "",
+    content: "",
+  });
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = event.target;
-        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    };
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
+  };
 
-    const handleSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        addNews(formData).then(() => navigate("/news"))
-    };
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    addNews(formData).then(() => navigate("/news"));
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <TextField
-                id="header"
-                name="header"
-                label="Заголовок"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={formData.header}
-                onChange={handleChange}
-            />
+  return (
+    <div className="container mt-3">
+      <form onSubmit={handleSubmit}>
+        <TextField
+          id="header"
+          name="header"
+          label="Заголовок"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={formData.header}
+          onChange={handleChange}
+        />
 
-            <TextField
-                id="content"
-                name="content"
-                label="Содержимое"
-                variant="outlined"
-                multiline
-                rows={4}
-                fullWidth
-                margin="normal"
-                value={formData.content}
-                onChange={handleChange}
-            />
+        <TextField
+          id="content"
+          name="content"
+          label="Содержимое"
+          variant="outlined"
+          multiline
+          rows={4}
+          fullWidth
+          margin="normal"
+          value={formData.content}
+          onChange={handleChange}
+        />
 
-            <Button type="submit" variant="contained" color="primary">
-                Отправить
-            </Button>
-        </form>
-    );
+        <Button type="submit" variant="contained" color="primary">
+          Отправить
+        </Button>
+      </form>
+    </div>
+  );
 }

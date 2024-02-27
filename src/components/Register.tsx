@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import IUser from "../types/user.type";
 import { register } from "../services/auth.service";
-import {redirect} from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 const Register: React.FC = () => {
   const [successful, setSuccessful] = useState<boolean>(false);
@@ -22,9 +22,7 @@ const Register: React.FC = () => {
         "len",
         "The username must be between 3 and 20 characters.",
         (val: any) =>
-          val &&
-          val.toString().length >= 3 &&
-          val.toString().length <= 20
+          val && val.toString().length >= 3 && val.toString().length <= 20
       )
       .required("This field is required!"),
     email: Yup.string()
@@ -35,9 +33,7 @@ const Register: React.FC = () => {
         "len",
         "The password must be between 6 and 40 characters.",
         (val: any) =>
-          val &&
-          val.toString().length >= 6 &&
-          val.toString().length <= 40
+          val && val.toString().length >= 6 && val.toString().length <= 40
       )
       .required("This field is required!"),
   });
@@ -46,13 +42,13 @@ const Register: React.FC = () => {
     const { username, email, password } = formValue;
 
     register(username, email, password).then(
-      (response) => {
+      response => {
         setMessage(response.data.message);
         setSuccessful(true);
-        console.log("register", response.data)
+        console.log("register", response.data);
         return redirect("/about");
       },
-      (error) => {
+      error => {
         const resMessage =
           (error.response &&
             error.response.data &&
@@ -67,75 +63,83 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleRegister}
-        >
-          <Form>
-            {!successful && (
-              <div>
-                <div className="form-group">
-                  <label htmlFor="username"> Username </label>
-                  <Field name="username" type="text" className="form-control" />
-                  <ErrorMessage
-                    name="username"
-                    component="div"
-                    className="alert alert-danger"
-                  />
-                </div>
+    <div className="container mt-3">
+      <div className="col-md-12">
+        <div className="card card-container">
+          <img
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="profile-img"
+            className="profile-img-card"
+          />
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleRegister}
+          >
+            <Form>
+              {!successful && (
+                <div>
+                  <div className="form-group">
+                    <label htmlFor="username"> Username </label>
+                    <Field
+                      name="username"
+                      type="text"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="username"
+                      component="div"
+                      className="alert alert-danger"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label htmlFor="email"> Email </label>
-                  <Field name="email" type="email" className="form-control" />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="alert alert-danger"
-                  />
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="email"> Email </label>
+                    <Field name="email" type="email" className="form-control" />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="alert alert-danger"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <label htmlFor="password"> Password </label>
-                  <Field
-                    name="password"
-                    type="password"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="alert alert-danger"
-                  />
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="password"> Password </label>
+                    <Field
+                      name="password"
+                      type="password"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="alert alert-danger"
+                    />
+                  </div>
 
-                <div className="form-group">
-                  <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                  <div className="form-group">
+                    <button type="submit" className="btn btn-primary btn-block">
+                      Sign Up
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {message && (
-              <div className="form-group">
-                <div
-                  className={
-                    successful ? "alert alert-success" : "alert alert-danger"
-                  }
-                  role="alert"
-                >
-                  {message}
+              {message && (
+                <div className="form-group">
+                  <div
+                    className={
+                      successful ? "alert alert-success" : "alert alert-danger"
+                    }
+                    role="alert"
+                  >
+                    {message}
+                  </div>
                 </div>
-              </div>
-            )}
-          </Form>
-        </Formik>
+              )}
+            </Form>
+          </Formik>
+        </div>
       </div>
     </div>
   );
