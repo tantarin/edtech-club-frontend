@@ -1,16 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import * as AuthService from "./services/auth.service";
-import IUser from './types/user.type';
+import IUser from "./types/user.type";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
 import News from "./components/News/News";
-import Profile from "./components/Profile/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
@@ -19,10 +18,10 @@ import EventBus from "./common/EventBus";
 import AddNews from "./components/News/AddNews";
 import AddAds from "./components/Ads/AddAds";
 import AdsPage from "./components/Ads/AdsPage";
-import {AboutPage} from "./components/About/About";
-import {Button} from "@mui/material";
-import {urls} from "./config/config";
+import { AboutPage } from "./components/About/About";
+import { urls } from "./config/config";
 import Header from "./components/Header/Header";
+import Profile from "./components/Profile/Profile";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -54,8 +53,8 @@ const App: React.FC = () => {
 
   return (
     <div className="max-w-full">
-      <Header currentUser={currentUser} logOut={logOut}/>
-      <div className="container mt-3">
+      <Header currentUser={currentUser} logOut={logOut} />
+      <div>
         <Routes>
           <Route path={urls.main} element={<AboutPage />} />
           <Route path={urls.news} element={<News />} />

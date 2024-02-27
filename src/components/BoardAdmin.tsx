@@ -8,10 +8,10 @@ const BoardAdmin: React.FC = () => {
 
   useEffect(() => {
     getAdminBoard().then(
-      (response) => {
+      response => {
         setContent(response.data);
       },
-      (error) => {
+      error => {
         const _content =
           (error.response &&
             error.response.data &&
@@ -29,10 +29,12 @@ const BoardAdmin: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
+    <div className="container mt-3">
+      <div className="container">
+        <header className="jumbotron">
+          <h3>{content}</h3>
+        </header>
+      </div>
     </div>
   );
 };

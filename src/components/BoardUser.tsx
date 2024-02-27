@@ -5,14 +5,14 @@ import EventBus from "../common/EventBus";
 
 const BoardUser: React.FC = () => {
   const [content, setContent] = useState<string>("");
-  console.log("content", content)
+  console.log("content", content);
 
   useEffect(() => {
     getUserBoard().then(
-      (response) => {
+      response => {
         setContent(response.data);
       },
-      (error) => {
+      error => {
         const _content =
           (error.response &&
             error.response.data &&
@@ -30,10 +30,12 @@ const BoardUser: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
+    <div className="container mt-3">
+      <div className="container">
+        <header className="jumbotron">
+          <h3>{content}</h3>
+        </header>
+      </div>
     </div>
   );
 };
