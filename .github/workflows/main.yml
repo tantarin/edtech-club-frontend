@@ -25,8 +25,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
-  run_deploy:
-    name: run deploy
+  deploy:
     needs: build
     runs-on: ubuntu-latest
 
