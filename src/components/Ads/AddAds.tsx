@@ -10,7 +10,6 @@ interface FormData {
   content: string;
 }
 
-//TODO rename
 export default function AddAds() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({

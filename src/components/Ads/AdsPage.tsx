@@ -79,7 +79,7 @@ const AdsPage: React.FC = () => {
 
           <dl className="flex mt-6">
             <div className="flex flex-col-reverse">
-              <dt className="text-sm font-medium text-slate-600">Published</dt>
+              <dt className="text-sm font-medium text-slate-600">Опубликовано</dt>
               <dd className="text-xs text-slate-500">31st June, 2022</dd>
             </div>
           </dl>
