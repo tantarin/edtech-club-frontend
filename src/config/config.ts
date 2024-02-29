@@ -1,5 +1,5 @@
-export const API_URL: string = "https://api.edtech.sptm.dev/auth/";
-export const API_URL_TEST: string = "https://api.edtech.sptm.dev/test/";
+export const API_URL: string = "https://edtech.sptm.dev/api/auth/";
+export const API_URL_TEST: string = "https://edtech.sptm.dev/api/test/";
 
 export const urls = {
   main: "/",
