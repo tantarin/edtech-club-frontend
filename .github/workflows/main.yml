@@ -36,6 +36,6 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: connect, pull and restart container
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout master && git pull && docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest && docker compose up -d --build frontend && exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout master && git pull && docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest && docker compose up -d --no-deps --force-recreate --build frontend && exit"
       - name: cleanup
         run: rm -rf ~/.ssh
