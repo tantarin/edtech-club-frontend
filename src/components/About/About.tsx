@@ -11,28 +11,6 @@ export const AboutPage: FC = () => {
     <div className="about-page">
       <section className="about-hero">
         <div className="background" />
-        <div className="about-container">
-          <h1 className="font-bold text-[60px] text-center mb-8 pt-[60px] text-white">
-            О нас
-          </h1>
-          <div className="text-[#f4ebeb] font-normal max-w-[700px] text-center mx-auto">
-            <div className="mb-6 md:mb-0">
-              <p className="mb-4">
-                Площадка для вовлечения студентов и преподавателей в
-                инновационную деятельность по разработке педагогических
-                технологий, основанных на использовании новых технических и
-                технологических решений - искусственного интеллекта, машинного
-                обучения, виртуальной реальности, робототехники, новых
-                материалов. Идея создания клуба заключается в кооперации
-                специалистов, обладающих взаимодополняющими компетенциями, -
-                педагогов, экономистов, программистов, дизайнеров - для создания
-                EdTech-проектов, поиска инвесторов, заказчиков, грантодателей,
-                партнеров и наставников, развития проектных команд, подготовки и
-                продвижения этих проектов.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
       <section className="about-more">
         <div className="about-more__container">
