@@ -14,4 +14,5 @@ export const urls = {
   admin: "/admin",
   addNews: "/addNews",
   addAds: "/addAds",
+  accel: "/accel",
 };

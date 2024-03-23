@@ -14,6 +14,10 @@ export const getAds = () => {
   return axios.get(API_URL_TEST + "ads");
 };
 
+export const getAccel = () => {
+  return axios.get(API_URL_TEST + "accel");
+};
+
 export const getUserBoard = () => {
   return axios.get(API_URL_TEST + "user", { headers: authHeader() });
 };

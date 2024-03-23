@@ -20,7 +20,7 @@ const pages = [
   },
   {
     name: "Акселератор",
-    href: urls.ads,
+    href: urls.accel,
   },
   {
     name: "Дайджест",

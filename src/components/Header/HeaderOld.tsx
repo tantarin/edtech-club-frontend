@@ -34,7 +34,7 @@ export default function Header(props: HeaderProps) {
         </li>
 
         <li className="nav-item">
-          <Link to={urls.ads} className="nav-link">
+          <Link to={urls.accel} className="nav-link">
             Акселератор
           </Link>
         </li>
