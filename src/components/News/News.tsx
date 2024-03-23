@@ -77,7 +77,7 @@ const News: React.FC = () => {
                       <CardMedia
                         component="img"
                         height="140"
-                        image="https://via.placeholder.com/345x140" // Замените этот URL на требуемый URL изображения
+                        image="https://via.placeholder.com/345x140"
                         alt="Placeholder Image"
                       />
                       <CardContent>

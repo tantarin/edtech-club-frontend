@@ -23,6 +23,7 @@ import { urls } from "./config/config";
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Accel from "./views/accelerator";
+import Digest from "./views/digest";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -70,6 +71,7 @@ const App: React.FC = () => {
           <Route path={urls.addNews} element={<AddNews />} />
           <Route path={urls.addAds} element={<AddAds />} />
           <Route path={urls.accel} element={<Accel />} />
+          <Route path={urls.digest} element={<Digest />} />
         </Routes>
       </div>
     </div>

@@ -15,4 +15,5 @@ export const urls = {
   addNews: "/addNews",
   addAds: "/addAds",
   accel: "/accel",
+  digest: "/digest",
 };

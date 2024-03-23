@@ -24,7 +24,7 @@ const pages = [
   },
   {
     name: "Дайджест",
-    href: urls.ads,
+    href: urls.digest,
   },
   {
     name: "Банк знаний",
