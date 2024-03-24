@@ -11,16 +11,16 @@ const pages = [
     href: urls.about,
   },
   {
-    name: "Мероприятия",
-    href: urls.news,
-  },
-  {
     name: "Поиск команды",
     href: urls.ads,
   },
   {
     name: "Акселератор",
     href: urls.accel,
+  },
+  {
+    name: "Мероприятия",
+    href: urls.news,
   },
   {
     name: "Дайджест",
