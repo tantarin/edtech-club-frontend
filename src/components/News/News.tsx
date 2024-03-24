@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { getCurrentUser } from "../../services/auth.service";
 import IUser from "../../types/user.type";
 import "./News.css";
+import SearchForm from "../SearchForm";
 
 interface IContent {
   content: string;
@@ -44,11 +45,16 @@ const News: React.FC = () => {
   };
 
   return (
+      <>
+        <div className="showcase">
+          <div className="overlay px-5">
+            <h1 className="text-4xl font-bold text-white text-center mb-4 lg:text-6xl">
+              События клуба
+            </h1>
+          </div>
+        </div>
     <div className="container mt-3">
       <div>
-        <header className="jumbotron" style={{ marginBottom: 0 }}>
-          <h3>События клуба</h3>
-        </header>
         <Box
           m={1}
           display="flex"
@@ -102,6 +108,7 @@ const News: React.FC = () => {
         </Grid>
       </div>
     </div>
+      </>
   );
 };
 
