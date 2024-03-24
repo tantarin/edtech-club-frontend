@@ -1,4 +1,5 @@
 import React from "react";
+import Background from '../assets/img/wiki.jpg';
 
 export default function Sidebar() {
     return (
@@ -88,7 +89,7 @@ export default function Sidebar() {
                 </div>
                 <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
                     <div className="bg-cover bg-center text-center overflow-hidden"
-                         style={{ minHeight: '500px', backgroundImage: "url('https://api.time.com/wp-content/uploads/2020/07/never-trumpers-2020-election-01.jpg?quality=85&w=1201&h=676&crop=1')" }}
+                         style={{ minHeight: '500px', backgroundImage: `url(${Background})` }}
                          title="Woman holding a mug">
                     </div>
                     <div className="max-w-3xl mx-auto">
