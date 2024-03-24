@@ -46,7 +46,7 @@ export default function Header(props: HeaderProps) {
         </li>
 
         <li className="nav-item">
-          <Link to={urls.ads} className="nav-link">
+          <Link to={urls.wiki} className="nav-link">
             Банк знаний
           </Link>
         </li>

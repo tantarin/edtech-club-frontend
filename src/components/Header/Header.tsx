@@ -28,7 +28,7 @@ const pages = [
   },
   {
     name: "Банк знаний",
-    href: urls.ads,
+    href: urls.wiki,
   },
 ];
 
