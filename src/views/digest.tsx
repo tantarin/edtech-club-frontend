@@ -11,7 +11,7 @@ const Digest: React.FC = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=RXQrHBOX22Ueq3N8AAF7YW8ZAUhi20mK`)
+                const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=education&api-key=RXQrHBOX22Ueq3N8AAF7YW8ZAUhi20mK`)
                 const articles = await res.json();
                 console.log(articles.response.docs);
                 setArticles(articles.response.docs);
