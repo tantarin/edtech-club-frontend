@@ -1,81 +1,84 @@
 import React, { useState, useEffect } from "react";
-import { getNews } from "../services/user.service";
-import { Link } from "react-router-dom";
-import IUser from "../types/user.type";
-import { getCurrentUser } from "../services/auth.service";
-import { Button, Grid, Card, CardContent, Typography } from "@mui/material";
-import "../components/News/News.css";
-
-interface IContent {
-    content: string;
-    date: string;
-    header: string;
-    id: number;
-}
+import SearchForm from "../components/SearchForm";
+import "./digest.css";
 
 const Digest: React.FC = () => {
-    const [content, setContent] = useState<IContent[]>([]);
-    const [user, setUser] = useState<IUser | undefined>(() => getCurrentUser());
+    const [articles, setArticles] = useState([]);
+    const [term, setTerm] = useState('everything');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        loadNews();
-        getCurrentUser();
-    }, []);
-
-    const loadNews = () => {
-        getNews().then(
-            (response) => {
-                setContent(response.data);
-            },
-            (error) => {
-                const _content =
-                    (error.response && error.response.data) ||
-                    error.message ||
-                    error.toString();
-
-                setContent(_content);
+        const fetchArticles = async () => {
+            try {
+                const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=RXQrHBOX22Ueq3N8AAF7YW8ZAUhi20mK`)
+                const articles = await res.json();
+                console.log(articles.response.docs);
+                setArticles(articles.response.docs);
+                setIsLoading(false);
+            } catch (e) {
+                console.error(e);
             }
-        );
+        }
+        fetchArticles()
+    }, [term])
+
+    const handleSearchText = (text: string) => {
+        setTerm(text);
     };
 
     return (
-        <div className="container mt-3">
-            <header className="jumbotron" style={{ marginBottom: 0 }}>
-                <h3>События клуба</h3>
-            </header>
-            <Grid container spacing={3}>
-                {content.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} key={item.id}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {item.header}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {item.content}
-                                </Typography>
-                            </CardContent>
-                            <div style={{ flexGrow: 1 }} />
-                            <CardContent>
-                                <Typography variant="body2" color="text.secondary">
-                                    {item.date}
-                                </Typography>
-                                <Link to="/" className="cursor-pointer text-lg text-indigo-600 font-semibold">Read more..</Link>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-            {user?.roles && user.roles.includes("ROLE_ADMIN") && (
-                <div className="flex justify-center mt-4">
-                    <Link to="/addNews" style={{ textDecoration: "none" }}>
-                        <Button variant="contained" color="primary">
-                            Добавить новость
-                        </Button>
-                    </Link>
+        <>
+            <div className="showcase">
+                <div className="overlay px-5">
+                    <h1 className="text-4xl font-bold text-white text-center mb-4 capitalize lg:text-6xl">Viewing Articles about {term}</h1>
+                    <SearchForm searchText={handleSearchText} />
                 </div>
+            </div>
+            {isLoading ? (
+                <h1 className="text-center mt-20 font-bold text-6xl">Loading...</h1>
+            ) : (
+                <section className="grid grid-cols-1 gap-10 px-5 pt-10 pb-20">
+                    {articles.map((article) => {
+                        const {
+                            abstract,
+                            headline: { main },
+                            byline: { original },
+                            lead_paragraph,
+                            news_desk,
+                            section_name,
+                            web_url,
+                            _id,
+                            word_count,
+                        } = article;
+                        return (
+                            <article key={_id} className="bg-white py-10 px-5 rounded-lg lg:w-9/12 lg:mx-auto">
+                                <h2 className="font-bold text-2xl mb-5 lg:text-4xl">{main}</h2>
+                                <p>{abstract}</p>
+                                <p>{lead_paragraph}</p>
+                                <ul className="my-4">
+                                    <li>{original}</li>
+                                    <li>
+                                        <span className="font-bold">News Desk:</span>
+                                        {news_desk}
+                                    </li>
+                                    <li>
+                                        <span className="font-bold">Section Name:</span>{' '}
+                                        {section_name}
+                                    </li>
+                                    <li>
+                                        <span className="font-bold">Word Count: </span>
+                                        {word_count}
+                                    </li>
+                                </ul>
+                                <a href={web_url} target="_blank" rel="noopener noreferrer" className="underline">
+                                    Web Resource
+                                </a>
+                            </article>
+                        );
+                    })}
+                </section>
             )}
-        </div>
+        </>
     );
 };
 
