@@ -28,6 +28,26 @@ body {
     }
 }
 
+.showcase2 {
+    background-image: url('../assets/img/event.jpg');
+    height: 400px;
+}
+
+.showcase2 .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width:1024px) {
+    .showcase2 {
+        background-image: url('../assets/img/event.jpg');
+    }
+}
+
 .App {
     text-align: center;
 }

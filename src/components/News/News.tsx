@@ -46,7 +46,7 @@ const News: React.FC = () => {
 
   return (
       <>
-        <div className="showcase">
+        <div className="showcase2">
           <div className="overlay px-5">
             <h1 className="text-4xl font-bold text-white text-center mb-4 lg:text-6xl">
               События клуба
