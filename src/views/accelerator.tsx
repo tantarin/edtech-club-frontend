@@ -66,7 +66,7 @@ const Accel: React.FC = () => {
                                         <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                                             <i className="fas fa-award"></i>
                                         </div>
-                                        <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                                        <h6 className="text-xl font-semibold">Менторство</h6>
                                         <p className="mt-2 mb-4 text-gray-600">
                                             Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.
                                         </p>
@@ -81,7 +81,7 @@ const Accel: React.FC = () => {
                                             <i className="fas fa-retweet"></i>
                                         </div>
                                         <h6 className="text-xl font-semibold">
-                                            Free Revisions
+                                            Обучение
                                         </h6>
                                         <p className="mt-2 mb-4 text-gray-600">
                                             Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.
@@ -97,7 +97,7 @@ const Accel: React.FC = () => {
                                             <i className="fas fa-fingerprint"></i>
                                         </div>
                                         <h6 className="text-xl font-semibold">
-                                            Verified Company
+                                            Инвестиции
                                         </h6>
                                         <p className="mt-2 mb-4 text-gray-600">
                                             Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!
