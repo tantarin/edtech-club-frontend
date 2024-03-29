@@ -7,10 +7,8 @@ export default function Newsletter() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8 py-6 lg:py-8"> {/* Уменьшенный внутренний отступ py */}
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:max-w-none lg:grid-cols-2"> {/* Уменьшенный внутренний отступ gap-y */}
                     <div className="max-w-xl lg:max-w-lg">
-                        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Подписывайтесь на рассылку</h2>
+                        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">Подписывайтесь на рассылку</h2>
                         <p className="mt-4 text-lg leading-8 text-gray-300">
-                            Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
-                            dolore.
                         </p>
                         <div className="mt-6 flex max-w-md gap-x-4">
                             <label htmlFor="email-address" className="sr-only">
@@ -38,18 +36,18 @@ export default function Newsletter() {
                             <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                                 <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true" />
                             </div>
-                            <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
+                            <dt className="mt-4 font-semibold text-white">Статьи еженедельно</dt>
                             <dd className="mt-2 leading-7 text-gray-400">
-                                Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
+
                             </dd>
                         </div>
                         <div className="flex flex-col items-start">
                             <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                                 <HandRaisedIcon className="h-6 w-6 text-white" aria-hidden="true" />
                             </div>
-                            <dt className="mt-4 font-semibold text-white">No spam</dt>
+                            <dt className="mt-4 font-semibold text-white">Никакого спама</dt>
                             <dd className="mt-2 leading-7 text-gray-400">
-                                Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
+
                             </dd>
                         </div>
                     </dl>
