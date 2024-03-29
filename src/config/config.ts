@@ -17,4 +17,5 @@ export const urls = {
   accel: "/accel",
   digest: "/digest",
   wiki: "/wiki",
+  startups: "/startups",
 };

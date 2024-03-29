@@ -50,6 +50,12 @@ export default function Header(props: HeaderProps) {
             Банк знаний
           </Link>
         </li>
+
+        <li className="nav-item">
+          <Link to={urls.startups} className="nav-link">
+            Стартапы
+          </Link>
+        </li>
       </div>
 
       {currentUser ? (

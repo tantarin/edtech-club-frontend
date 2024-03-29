@@ -30,6 +30,10 @@ const pages = [
     name: "Банк знаний",
     href: urls.wiki,
   },
+  {
+    name: "Стартапы",
+    href: urls.startups,
+  },
 ];
 
 type HeaderProps = {
