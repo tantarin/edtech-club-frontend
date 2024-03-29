@@ -37,7 +37,7 @@ const Digest: React.FC = () => {
                     <SearchForm searchText={handleSearchText} />
                 </div>
             </div>
-            <Newsletter />
+            {/*<Newsletter />*/}
             {isLoading ? (
                 <h1 className="text-center mt-20 font-bold text-6xl">Loading...</h1>
             ) : (
