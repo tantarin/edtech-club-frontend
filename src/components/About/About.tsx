@@ -15,7 +15,7 @@ export const AboutPage: FC = () => {
       <section className="about-more">
         <div className="about-more__container">
           <div className="about-more__left">
-            <h1 className="lg:text-5xl  font-bold leading-tight text-3xl">
+            <h1 className="lg:text-3xl  font-bold leading-tight text-3xl">
               Мы - сообщество энтузиастов в образовании и технологиях
             </h1>
             <div className="about-more__description">
