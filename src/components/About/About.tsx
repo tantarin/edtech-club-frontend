@@ -15,7 +15,9 @@ export const AboutPage: FC = () => {
       <section className="about-more">
         <div className="about-more__container">
           <div className="about-more__left">
-            <h2 className="about-more__title">EduTech Club</h2>
+            <h1 className="lg:text-5xl  font-bold leading-tight text-3xl">
+              Мы - сообщество энтузиастов в образовании и технологиях
+            </h1>
             <div className="about-more__description">
               <p>
                 Особым направлением деятельности является
