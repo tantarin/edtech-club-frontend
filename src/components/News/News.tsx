@@ -46,7 +46,7 @@ const News: React.FC = () => {
                     {content.map(item => (
                         <NewsSingle
                             title={item.header}
-                            category={item.content}
+                            content={item.content}
                             image='https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500'
                             key={item.id}
                         />
