@@ -19,18 +19,18 @@ const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
             }}
         >
             <Link to="/projects/single-project" aria-label="Single Project">
-                <div
-                    className="mx-3 mt-6 flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0">                    <div>
-                        <img
+                <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
+                    <div>
+                    <img
                             src={image}
                             className="rounded-t-xl border-none"
                             alt="Single Project"
                         />
                     </div>
-                    <div className="p-6">
-                        <h5 className="mb-2 text-xl font-medium leading-tight">
-                            {title}
-                        </h5>
+                    <div className="text-center px-4 py-6">
+                        <p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light mb-2">
+                        {title}
+                        </p>
                         <p className="mb-4 text-base">
                             {category}
                         </p>
