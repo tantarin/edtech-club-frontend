@@ -18,7 +18,7 @@ const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
                             alt="Single Project"
                         />
                     </div>
-                    <div className="text-center px-4 py-6">
+                    <div className="text-left px-4 py-6">
                         <p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light mb-2">
                         {title}
                         </p>
