@@ -8,9 +8,9 @@ interface ProjectSingleProps {
 
 const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
     return (
-        <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105">
+        <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
             <Link to="/projects/single-project" aria-label="Single Project">
-                <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
+            {/*//    <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">*/}
                     <div>
                     <img
                             src={image}
@@ -26,7 +26,7 @@ const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
                             {content}
                         </p>
                     </div>
-                </div>
+                {/*</div>*/}
             </Link>
          </div>
     );
