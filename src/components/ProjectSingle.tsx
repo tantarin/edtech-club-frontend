@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 interface ProjectSingleProps {
@@ -9,15 +8,7 @@ interface ProjectSingleProps {
 
 const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-                ease: 'easeInOut',
-                duration: 0.7,
-                delay: 1.15, // Установите задержку здесь, если это нужно
-            }}
-        >
+        <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105">
             <Link to="/projects/single-project" aria-label="Single Project">
                 <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
                     <div>
@@ -37,7 +28,7 @@ const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
                     </div>
                 </div>
             </Link>
-        </motion.div>
+         </div>
     );
 };
 
