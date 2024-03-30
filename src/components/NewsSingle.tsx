@@ -26,7 +26,7 @@ const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
                     </p>
                 </div>
             </Link>
-            <div className="border-t-2 border-neutral-100 px-6 py-2 text-surface/75 dark:border-white/10 dark:text-neutral-300 absolute bottom-0 w-full">
+            <div className="border-t-2 border-neutral-100 px-6 py-2 text-surface/75 dark:border-white/10 dark:text-neutral-300 absolute bottom-1 w-full">
                 <div className="mt-auto">2 days ago</div>
             </div>
         </div>
