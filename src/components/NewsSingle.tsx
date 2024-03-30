@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 interface ProjectSingleProps {
     title: string;
-    category: string;
+    content: string;
     image: string;
 }
 
-const NewsSingle = ({ title, category, image }: ProjectSingleProps) => {
+const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
     return (
         <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105">
             <Link to="/projects/single-project" aria-label="Single Project">
@@ -22,8 +22,8 @@ const NewsSingle = ({ title, category, image }: ProjectSingleProps) => {
                         <p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light mb-2">
                         {title}
                         </p>
-                        <p className="mb-4 text-base">
-                            {category}
+                        <p className="mb-4 text-base line-clamp-3">
+                            {content}
                         </p>
                     </div>
                 </div>
