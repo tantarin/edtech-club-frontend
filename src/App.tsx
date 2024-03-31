@@ -17,7 +17,6 @@ import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AddNews from "./components/News/AddNews";
 import AddAds from "./components/Ads/AddAds";
-import AdsPage from "./components/Ads/AdsPage";
 import { AboutPage } from "./components/About/About";
 import { urls } from "./config/config";
 import Header from "./components/Header/Header";
@@ -26,6 +25,7 @@ import Accel from "./views/accelerator";
 import Digest from "./views/digest";
 import Wiki from "./views/wiki";
 import Startups from "./views/startups";
+import Ads from "./views/ads";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -63,7 +63,7 @@ const App: React.FC = () => {
           <Route path={urls.main} element={<AboutPage />} />
           <Route path={urls.news} element={<News />} />
           <Route path={urls.about} element={<AboutPage />} />
-          <Route path={urls.ads} element={<AdsPage />} />
+          <Route path={urls.ads} element={<Ads />} />
           <Route path={urls.login} element={<Login />} />
           <Route path={urls.register} element={<Register />} />
           <Route path={urls.profile} element={<Profile />} />
