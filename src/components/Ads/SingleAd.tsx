@@ -12,19 +12,32 @@ const SingleAd: React.FC<AdData> = ({ id, header, content }) => {
         <div className={clsx("root", "rounded-[10px]")}>
             <div id="dismiss-card" className="flex flex-col bg-white rounded-lg dark:shadow-slate-700/[.9]">
                 <div className="inline-flex justify-between items-center rounded-t-xl py-1 px-4 md:py-1 md:px-2 dark:bg-gray-800">
-                    <button type="button"
+                    <a href="#dismiss-card" className="ml-auto">
+                        <button
+                            type="button"
                             className="inline-flex justify-center items-center size-4 rounded-lg text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
-                            data-hs-remove-element="#dismiss-card">
-                        <span className="sr-only">Close</span>
-                        <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                             stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 6 6 18"/>
-                            <path d="m6 6 12 12"/>
-                        </svg>
-                    </button>
+                            data-hs-remove-element="#dismiss-card"
+                        >
+                            <span className="sr-only">Close</span>
+                            <svg
+                                className="flex-shrink-0 size-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M18 6 6 18" />
+                                <path d="m6 6 12 12" />
+                            </svg>
+                        </button>
+                    </a>
                 </div>
-            <a className="relative block p-8 overflow-hidden bg-white border-slate-100 rounded-lg" href="">
+            <a className="relative block px-6 py-2 overflow-hidden bg-white border-slate-100 rounded-lg" href="">
         <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                 <div className="justify-between sm:flex">
                     <div>
