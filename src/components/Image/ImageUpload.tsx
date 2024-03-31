@@ -9,11 +9,11 @@ const ImageUpload: React.FC = () => {
     const [message, setMessage] = useState<string>("");
     const [imageInfos, setImageInfos] = useState<Array<IFile>>([]);
 
-    useEffect(() => {
-        UploadService.getFiles().then((response) => {
-            setImageInfos(response.data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     UploadService.getFiles().then((response) => {
+    //         setImageInfos(response.data);
+    //     });
+    // }, []);
 
     const selectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFiles = event.target.files as FileList;
@@ -31,10 +31,10 @@ const ImageUpload: React.FC = () => {
         })
             .then((response) => {
                 setMessage(response.data.message);
-                return UploadService.getFiles();
+            //    return UploadService.getFiles();
             })
             .then((files) => {
-                setImageInfos(files.data);
+             //   setImageInfos(files.data);
             })
             .catch((err) => {
                 setProgress(0);

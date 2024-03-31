@@ -19,7 +19,7 @@ const getFiles = () : Promise<any> => {
 
 const FileUploadService = {
     upload,
-    getFiles,
+  //  getFiles,
 };
 
 export default FileUploadService;
