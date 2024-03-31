@@ -31,17 +31,31 @@ export default function AddNews() {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    addNews(formData)
+        .then((response) => {
+          const { id } = response.data;
+          console.log("id" + {id});
+          if (!file) {
+            console.error("No file selected.");
+            return;
+          }
+          uploadImage(id);
+        })
+        .then(() => navigate("/news"))
+        .catch((error) => console.error("Error adding news:", error));
+  };
 
+  const uploadImage = (id: bigint) => {
     if (!file) {
       console.error("No file selected.");
       return;
     }
-
-    upload(file, onUploadProgress)
-        .then(() => addNews(formData))
-        .then(() => navigate("/news"))
-        .catch((error) => console.error("Error uploading file:", error));
+    upload(file, id, onUploadProgress)
+        .then(() => console.log("Image uploaded successfully"))
+        .catch((error) => console.error("Error uploading image:", error));
   };
+
+
 
   const onUploadProgress = (progressEvent: ProgressEvent<EventTarget>) => {
     // Обработка прогресса загрузки, если необходимо
