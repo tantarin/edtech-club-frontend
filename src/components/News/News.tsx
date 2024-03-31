@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react";
-import {getNews} from "../../services/user.service";
-import {getCurrentUser} from "../../services/auth.service";
+import React, { useState, useEffect } from "react";
+import { getNews } from "../../services/user.service";
+import { getCurrentUser } from "../../services/auth.service";
 import IUser from "../../types/user.type";
 import "./News.css";
 import Image1 from "../../assets/img/ui-project-1.jpg";
 import NewsSingle from "../NewsSingle";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface IContent {
     content: string;
@@ -24,10 +24,10 @@ const News: React.FC = () => {
 
     const loadNews = () => {
         getNews()
-            .then(response => {
+            .then((response) => {
                 setContent(response.data);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error("Error fetching news:", error);
             });
     };
@@ -41,19 +41,22 @@ const News: React.FC = () => {
                     </h1>
                 </div>
             </div>
-            {/*Card*/}
-            <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-                {<Link to="/addNews" style={{textDecoration: "none"}}>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                        Button
+            {/* Button */}
+            <div className="max-w-screen-xl mx-auto px-5 sm:px-5 md:px-5 py-2 sm:py-2 md:py-2 flex justify-start mt-2 mb-2">
+                <Link to="/addNews">
+                    <button className="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 shadow-md">
+                        Добавить новость
                     </button>
-                </Link>}
+                </Link>
+            </div>
+            {/* News Cards */}
+            <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
                 <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-                    {content.map(item => (
+                    {content.map((item) => (
                         <NewsSingle
                             title={item.header}
                             content={item.content}
-                            image='https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500'
+                            image="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
                             key={item.id}
                         />
                     ))}
