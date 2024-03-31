@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { addNews } from "../../services/news.service";
 import { useNavigate } from "react-router-dom";
+import ImageUpload from "../Image/ImageUpload";
 
 interface FormData {
   header: string;
@@ -31,6 +32,7 @@ export default function AddNews() {
 
   return (
     <div className="container mt-3">
+      <ImageUpload />
       <form onSubmit={handleSubmit}>
         <TextField
           id="header"

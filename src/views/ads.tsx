@@ -53,7 +53,8 @@ const Ads: React.FC = () => {
         <div className="container mt-3">
             <Container>
                 <div className="gap-4 flex flex-col mt-2">
-                    {user?.roles && user.roles.includes("ROLE_ADMIN") && (
+                    {/*{user?.roles && user.roles.includes("ROLE_ADMIN") && (*/}
+                    {(
                         <Link to="/addAds" style={{ textDecoration: "none" }}>
                             <Button variant="contained" color="primary" sx={{ height: 50 }}>
                                 Добавить объявление

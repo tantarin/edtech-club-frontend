@@ -57,16 +57,6 @@ const ImageUpload: React.FC = () => {
                         <input type="file" accept="image/*" onChange={selectImage} />
                     </label>
                 </div>
-
-                <div className="col-4">
-                    <button
-                        className="btn btn-success btn-sm"
-                        disabled={!currentImage}
-                        onClick={upload}
-                    >
-                        Upload
-                    </button>
-                </div>
             </div>
 
             {currentImage && progress > 0 && (
