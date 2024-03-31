@@ -5,6 +5,7 @@ import IUser from "../../types/user.type";
 import "./News.css";
 import Image1 from "../../assets/img/ui-project-1.jpg";
 import NewsSingle from "../NewsSingle";
+import {Link} from "react-router-dom";
 
 interface IContent {
     content: string;
@@ -42,6 +43,11 @@ const News: React.FC = () => {
             </div>
             {/*Card*/}
             <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+                {<Link to="/addNews" style={{textDecoration: "none"}}>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        Button
+                    </button>
+                </Link>}
                 <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
                     {content.map(item => (
                         <NewsSingle
