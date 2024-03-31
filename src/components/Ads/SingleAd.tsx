@@ -1,13 +1,16 @@
 import React from "react";
 import clsx from "clsx";
+import {deleteAd} from "../../services/ads.service";
 
 interface AdData {
     id: bigint;
     header: string;
     content: string;
+    handleDelete: (id: bigint) => Promise<void>;
 }
 
-const SingleAd: React.FC<AdData> = ({ id, header, content }) => {
+const SingleAd: React.FC<AdData> = ({ id, header, content , handleDelete}) => {
+
     return (
         <div className={clsx("root", "rounded-[10px]")}>
             <div id="dismiss-card" className="flex flex-col bg-white rounded-lg dark:shadow-slate-700/[.9]">
@@ -17,6 +20,7 @@ const SingleAd: React.FC<AdData> = ({ id, header, content }) => {
                             type="button"
                             className="inline-flex justify-center items-center size-4 rounded-lg text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
                             data-hs-remove-element="#dismiss-card"
+                            onClick={() => handleDelete(id)}
                         >
                             <span className="sr-only">Close</span>
                             <svg

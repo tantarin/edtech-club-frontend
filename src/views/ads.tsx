@@ -5,12 +5,14 @@ import IUser from "../types/user.type";
 import { getCurrentUser } from "../services/auth.service";
 import { getAds } from "../services/user.service";
 import SingleAd from "../components/Ads/SingleAd";
+import {deleteAd} from "../services/ads.service";
 
 interface AdData {
     id: bigint;
     header: string;
     content: string;
 }
+
 
 const Ads: React.FC = () => {
     const [content, setContent] = useState<AdData[]>([]);
@@ -32,6 +34,17 @@ const Ads: React.FC = () => {
         );
     };
 
+    const handleDelete = async (id: bigint) => {
+        try {
+            await deleteAd(id); // Попытка удалить объявление
+            // Если удаление прошло успешно, обновляем состояние content
+            setContent(prevContent => prevContent.filter(ad => ad.id !== id));
+            console.log("Ad deleted successfully");
+        } catch (error) {
+            console.error("Error deleting ad:", error);
+        }
+    };
+
     useEffect(() => {
         loadAds();
     }, []);
@@ -49,7 +62,7 @@ const Ads: React.FC = () => {
                     )}
                     <div className="grid grid-cols-1 gap-4">
                         {Array.isArray(content) &&
-                            content.map((ad, index) => <SingleAd key={index} {...ad} />)}
+                            content.map((ad, index) => <SingleAd key={index} {...ad} handleDelete={handleDelete}/>)}
                     </div>
                 </div>
             </Container>
