@@ -16,6 +16,11 @@ export default function AddAds() {
     header: "",
     content: "",
   });
+  const [file, setFile] = useState<File | null>(null); // Хранение файла для загрузки
+
+  const handleFileChange = (selectedFile: File) => {
+    setFile(selectedFile);
+  };
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,7 +36,7 @@ export default function AddAds() {
 
   return (
     <div className="container mt-3">
-      <ImageUpload />
+      <ImageUpload onChange={handleFileChange} />
       <form onSubmit={handleSubmit}>
         <TextField
           id="header"

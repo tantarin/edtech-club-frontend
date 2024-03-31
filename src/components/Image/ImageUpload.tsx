@@ -2,24 +2,24 @@ import { useState, useEffect } from "react";
 import UploadService from "../../services/FileUploadService";
 import IFile from "../../types/File";
 
-const ImageUpload: React.FC = () => {
+interface ImageUploadProps {
+    onChange: (file: File) => void; // Функция обратного вызова для передачи выбранного файла родительскому компоненту
+}
+
+const ImageUpload: React.FC<ImageUploadProps> = ({ onChange }) => {
     const [currentImage, setCurrentImage] = useState<File>();
     const [previewImage, setPreviewImage] = useState<string>("");
     const [progress, setProgress] = useState<number>(0);
     const [message, setMessage] = useState<string>("");
     const [imageInfos, setImageInfos] = useState<Array<IFile>>([]);
 
-    // useEffect(() => {
-    //     UploadService.getFiles().then((response) => {
-    //         setImageInfos(response.data);
-    //     });
-    // }, []);
-
     const selectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFiles = event.target.files as FileList;
         setCurrentImage(selectedFiles?.[0]);
         setPreviewImage(URL.createObjectURL(selectedFiles?.[0]));
         setProgress(0);
+        const currentImage = selectedFiles?.[0];
+        onChange(currentImage);
     };
 
     const upload = () => {
