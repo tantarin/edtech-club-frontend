@@ -3,7 +3,6 @@ import { getNews } from "../../services/user.service";
 import { getCurrentUser } from "../../services/auth.service";
 import IUser from "../../types/user.type";
 import "./News.css";
-import Image1 from "../../assets/img/ui-project-1.jpg";
 import NewsSingle from "../NewsSingle";
 import { Link } from "react-router-dom";
 
@@ -11,6 +10,7 @@ interface IContent {
     content: string;
     date: string;
     header: string;
+    image: number[];
     id: number;
 }
 
@@ -57,7 +57,7 @@ const News: React.FC = () => {
                         <NewsSingle
                             title={item.header}
                             content={item.content}
-                            image="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
+                            image={item.image}
                             key={item.id}
                         />
                     ))}

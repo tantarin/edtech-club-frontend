@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 interface ProjectSingleProps {
     title: string;
     content: string;
-    image: string;
+    image: number[];
 }
 
 const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
+    const imageData = `data:image/jpeg;base64,${image}`;
+
     return (
         <div className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative">
             <Link to="/projects/single-project" aria-label="Single Project">
                 <div>
                     <img
-                        src={image}
+                        src={imageData}
                         className="rounded-t-xl border-none"
                         alt="Single Project"
                     />
