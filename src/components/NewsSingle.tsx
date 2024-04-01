@@ -11,7 +11,7 @@ const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
 
     return (
         <div className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative">
-            <Link to="/projects/single-project" aria-label="Single Project">
+            <Link to={`/news/1`}>
                 <div>
                     <img
                         src={imageData}

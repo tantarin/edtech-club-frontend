@@ -26,6 +26,7 @@ import Digest from "./views/digest";
 import Wiki from "./views/wiki";
 import Startups from "./views/startups";
 import Ads from "./views/ads";
+import Art from "./views/article";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -76,6 +77,7 @@ const App: React.FC = () => {
           <Route path={urls.digest} element={<Digest />} />
           <Route path={urls.wiki} element={<Wiki />} />
           <Route path={urls.startups} element={<Startups />} />
+          <Route path={urls.arts} element={<Art />} />
         </Routes>
       </div>
     </div>

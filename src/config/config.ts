@@ -19,4 +19,5 @@ export const urls = {
   digest: "/digest",
   wiki: "/wiki",
   startups: "/startups",
+  arts: "/news/:id",
 };
