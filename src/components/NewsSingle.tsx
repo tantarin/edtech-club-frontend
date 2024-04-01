@@ -15,8 +15,9 @@ const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
                 <div>
                     <img
                         src={imageData}
+                        style={{ width: "100%", height: "200px" }} // Задайте максимальные размеры изображения
                         className="rounded-t-xl border-none"
-                        alt="Single Project"
+                        alt={title}
                     />
                 </div>
                 <div className="text-left px-4 py-6">
