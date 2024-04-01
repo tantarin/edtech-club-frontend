@@ -1,5 +1,5 @@
 import React from "react";
-import Background from '../../assets/img/ui-project-1.jpg';
+import Background from '../../assets/img/art.jpg';
 
 export default function Article() {
     return (
@@ -16,7 +16,7 @@ export default function Article() {
                         <div
                             className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
                             <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
-                                <h1 className="text-gray-900 font-bold text-3xl mb-2">Что такое EdTech</h1>
+                                <h1 className="text-gray-900 font-bold text-3xl mb-2">Клуб образовательных стартапов</h1>
                                 <p className="text-gray-700 text-xs mt-2">Written By:
                                     <a href="#"
                                        className="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
