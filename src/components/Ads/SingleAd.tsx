@@ -66,10 +66,44 @@ const SingleAd: React.FC<AdData> = ({ id, header, content , handleDelete}) => {
 
                 <dl className="flex mt-6">
                     <div className="flex flex-col-reverse">
-                        <dt className="text-sm font-medium text-slate-600">Опубликовано</dt>
                         <dd className="text-xs text-slate-500">31st June, 2022</dd>
                     </div>
                 </dl>
+                <div className="col-span-3 row-span-1">
+                    <ul
+                        className="flex flex-row pl-0 text-gray-600"
+                    >
+                        <li className="py-1">
+                            <div
+                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
+                            >
+                                <a className="" href="#">#hogehoge</a>
+                            </div>
+                        </li>
+                        <li className="py-1">
+                            <div
+                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
+                            >
+                                <a className="" href="#">#fugafuga</a>
+                            </div>
+                        </li>
+
+                        <li className="py-1">
+                            <div
+                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
+                            >
+                                <a className="" href="#">#foofoo</a>
+                            </div>
+                        </li>
+                        <li className="py-1">
+                            <div
+                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
+                            >
+                                <a className="" href="#">#barbarbar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </a>
             </div>
         </div>
