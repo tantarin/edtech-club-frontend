@@ -104,12 +104,6 @@ const Ads: React.FC = () => {
                                         {category}
                                     </div>
                                 ))}
-                                <div
-                                    onClick={() => resetCategory()}
-                                    className={`${(selectedCategories.length > 0) ? 'opacity-100' : 'opacity-0 pointer-events-none'} sticky right-0 w-fit h-full px-5 flex justify-center items-center text-blue-500 bg-white backdrop-blur-lg cursor-pointer hover:text-blue-700 transition-all duration-300`}
-                                >
-                                    clear
-                                </div>
                             </div>
                         </div>
                             <div className="grid grid-cols-1 gap-4">
