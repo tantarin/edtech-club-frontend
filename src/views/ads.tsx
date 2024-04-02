@@ -10,7 +10,7 @@ interface AdData {
     id: number;
     header: string;
     content: string;
-    tags: string[]; // Изменено на массив строк для тегов
+    tags: string[];
 }
 
 const Ads: React.FC = () => {
@@ -46,7 +46,7 @@ const Ads: React.FC = () => {
         }
     };
 
-    const addCategory = (category: string) => { // Указание типа для параметра
+    const addCategory = (category: string) => {
         if (!selectedCategories.includes(category)) {
             setSelectedCategories(prev => ([...prev, category]))
         }
@@ -104,7 +104,7 @@ const Ads: React.FC = () => {
                             </div>
                         </div>
                             <div className="grid grid-cols-1 gap-4">
-                                {content.map((ad, index) => <SingleAd key={index} id={ad.id} header={ad.header} content={ad.content} tags={ad.tags} handleDelete={handleDelete} />)}
+                                {filteredAdsList.map((ad, index) => <SingleAd key={index} id={ad.id} header={ad.header} content={ad.content} tags={ad.tags} handleDelete={handleDelete} />)}
                             </div>
                 </div>
             </Container>
