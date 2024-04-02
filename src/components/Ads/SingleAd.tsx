@@ -73,7 +73,7 @@ const SingleAd: React.FC<AdData> = ({ id, header, content , tags, handleDelete})
                         <ul className="flex flex-row pl-0 text-gray-600">
                             {tags && tags.length > 0 && tags.map((tag: string, index: number) => (
                                 <li key={index} className="py-1">
-                                    <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800">
+                                    <div className="bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-green-200">
                                         <a className="" href="#">{tag}</a>
                                     </div>
                                 </li>
