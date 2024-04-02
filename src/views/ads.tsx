@@ -88,9 +88,9 @@ const Ads: React.FC = () => {
                             </Button>
                         </Link>
                     )}
-                        <div className='w-full h-[90%] rounded-md bg-white'>
+                        <div className='w-full h-[90%] rounded-md bg-transparent'>
                             <div className='relative w-full h-[15%] flex items-center overflow-x-auto'>
-                                <span className='mx-3 ml-5 font-medium'> Фильтр по категориям: </span>
+                                <span className='mx-2 ml-3 font-medium'> Фильтр по категориям: </span>
                                 {categories.map((category) => (
                                     <div
                                         onClick={() => {
