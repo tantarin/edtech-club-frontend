@@ -5,39 +5,37 @@ import {getAds} from "../services/user.service";
 import {Link} from "react-router-dom";
 import {Container, Button} from "@mui/material";
 
+
 interface AdData {
-    id: bigint;
+    id: number;
     header: string;
     content: string;
-    category: string; // Добавлена категория для объявления
+    tags: string[]; // Изменено на массив строк для тегов
 }
 
 const Ads: React.FC = () => {
     const [content, setContent] = useState<AdData[]>([]);
-    const [categories, setCategories] = useState(["Java", "Python", "Тестирование", "React"]);
+    const [error, setError] = useState<string | null>(null); // Стейт для отображения ошибки
+    const [categories, setTags] = useState(["Frontend", "Backend", "Fullstack", "UXUI", "Marketing"]);
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]); // Исправлен тип для selectedCategories
     const [filteredAdsList, setFilteredAdsList] = useState<AdData[]>([]); // Переименована переменная и изменен тип
 
     const loadAds = () => {
         getAds().then(
             (response) => {
+                console.log("!!!!")
+                console.log(response.data)
                 setContent(response.data);
                 setFilteredAdsList(response.data);
             },
             (error) => {
-                console.error("Error2:", error.message);
-                const _content =
-                    (error.response && error.response.data) ||
-                    error.message ||
-                    error.toString();
-                // const errorId = error.response ? error.response.data.id : null;
-                const errorId = null;
-                setContent([{id: BigInt(1), header: "Error", content: _content, category: "Java"}]);
+                console.error("Error:", error.message);
+                setError(error.toString());
             }
         );
     };
 
-    const handleDelete = async (id: bigint) => {
+    const handleDelete = async (id: number) => {
         try {
             await deleteAd(id);
             setContent(prevContent => prevContent.filter(ad => ad.id !== id));
@@ -61,17 +59,16 @@ const Ads: React.FC = () => {
         }
     }
 
-    const resetCategory = () => {
-        setSelectedCategories([]);
-    }
-
     useEffect(() => {
         if (selectedCategories.length === 0) {
-            setFilteredAdsList(content); // Установка отфильтрованного списка в начальное значение при сбросе категорий
+            setFilteredAdsList(content); // Если не выбрано ни одной категории, показываем все объявления
         } else {
-            setFilteredAdsList(content.filter((item) => (selectedCategories.includes(item.category))));
+            setFilteredAdsList(content.filter((item) => (
+                item.tags.some(tag => selectedCategories.includes(tag))
+            ))); // Фильтруем объявления по тегам: если хотя бы один тег из выбранных входит в массив тегов объявления, оно проходит фильтрацию
         }
     }, [selectedCategories, content]);
+
 
     useEffect(() => {
         loadAds();
@@ -90,7 +87,7 @@ const Ads: React.FC = () => {
                     )}
                         <div className='w-full h-[90%] rounded-md bg-transparent'>
                             <div className='relative w-full h-[15%] flex items-center overflow-x-auto'>
-                                <span className='mx-2 ml-3 font-medium'> Фильтр по категориям: </span>
+                                <span className='mx-2 ml-0 font-medium'> Фильтр по категориям: </span>
                                 {categories.map((category) => (
                                     <div
                                         onClick={() => {
@@ -107,8 +104,7 @@ const Ads: React.FC = () => {
                             </div>
                         </div>
                             <div className="grid grid-cols-1 gap-4">
-                                {content.map((ad, index) => <SingleAd key={index} {...ad}
-                                                                              handleDelete={handleDelete}/>)}
+                                {content.map((ad, index) => <SingleAd key={index} id={ad.id} header={ad.header} content={ad.content} tags={ad.tags} handleDelete={handleDelete} />)}
                             </div>
                 </div>
             </Container>

@@ -6,7 +6,7 @@ export function addAds(data = {}) {
 }
 
 
-export async function deleteAd(id: bigint) {
+export async function deleteAd(id: number) {
     try {
         await axios.delete(`${API_URL_TEST}ads/${id}`);
     } catch (error) {

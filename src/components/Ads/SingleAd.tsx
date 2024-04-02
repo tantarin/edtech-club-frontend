@@ -3,14 +3,17 @@ import clsx from "clsx";
 import {deleteAd} from "../../services/ads.service";
 
 interface AdData {
-    id: bigint;
+    id: number;
     header: string;
     content: string;
-    handleDelete: (id: bigint) => Promise<void>;
+    tags: string[];
+    handleDelete: (id: number) => Promise<void>;
 }
 
-const SingleAd: React.FC<AdData> = ({ id, header, content , handleDelete}) => {
 
+const SingleAd: React.FC<AdData> = ({ id, header, content , tags, handleDelete}) => {
+    console.error("-----" + tags);
+    console.error("-----" + header);
     return (
         <div className={clsx("root", "rounded-[10px]")}>
             <div id="dismiss-card" className="flex flex-col bg-white rounded-lg dark:shadow-slate-700/[.9]">
@@ -41,70 +44,43 @@ const SingleAd: React.FC<AdData> = ({ id, header, content , handleDelete}) => {
                         </button>
                     </a>
                 </div>
-            <a className="relative block px-6 py-2 overflow-hidden bg-white border-slate-100 rounded-lg" href="">
-        <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
-                <div className="justify-between sm:flex">
-                    <div>
-                        <h5 className="text-xl font-bold text-slate-900">{header}</h5>
-                        <p className="mt-1 text-xs font-medium text-slate-600">
-                            By Ana Doe
-                        </p>
+                <a className="relative block px-6 py-2 overflow-hidden bg-white border-slate-100 rounded-lg" href="">
+                    <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+                    <div className="justify-between sm:flex">
+                        <div>
+                            <h5 className="text-xl font-bold text-slate-900">{header}</h5>
+                            <p className="mt-1 text-xs font-medium text-slate-600">
+                                By Ana Doe
+                            </p>
+                        </div>
+                        <div className="flex-shrink-0 hidden ml-3 sm:block">
+                            <img
+                                className="object-cover w-16 h-16 rounded-lg shadow-sm"
+                                src={`https://github.com/creativetimofficial/argon-design-system/blob/master/assets/img/faces/team-${id}.jpg?raw=true`}
+                                alt=""
+                            />
+                        </div>
                     </div>
-
-                    <div className="flex-shrink-0 hidden ml-3 sm:block">
-                        <img
-                            className="object-cover w-16 h-16 rounded-lg shadow-sm"
-                            src={`https://github.com/creativetimofficial/argon-design-system/blob/master/assets/img/faces/team-${id}.jpg?raw=true`}
-                            alt=""
-                        />
+                    <div className="mt-4 sm:pr-8">
+                        <p className="text-sm text-slate-500">{content}</p>
                     </div>
-                </div>
-
-                <div className="mt-4 sm:pr-8">
-                    <p className="text-sm text-slate-500">{content}</p>
-                </div>
-
-                <dl className="flex mt-6">
-                    <div className="flex flex-col-reverse">
-                        <dd className="text-xs text-slate-500">31st June, 2022</dd>
+                    <dl className="flex mt-6">
+                        <div className="flex flex-col-reverse">
+                            <dd className="text-xs text-slate-500">31st June, 2022</dd>
+                        </div>
+                    </dl>
+                    <div className="col-span-3 row-span-1">
+                        <ul className="flex flex-row pl-0 text-gray-600">
+                            {tags && tags.length > 0 && tags.map((tag: string, index: number) => (
+                                <li key={index} className="py-1">
+                                    <div className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800">
+                                        <a className="" href="#">{tag}</a>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </dl>
-                <div className="col-span-3 row-span-1">
-                    <ul
-                        className="flex flex-row pl-0 text-gray-600"
-                    >
-                        <li className="py-1">
-                            <div
-                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
-                            >
-                                <a className="" href="#">#hogehoge</a>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div
-                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
-                            >
-                                <a className="" href="#">#fugafuga</a>
-                            </div>
-                        </li>
-
-                        <li className="py-1">
-                            <div
-                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
-                            >
-                                <a className="" href="#">#foofoo</a>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div
-                                className="transition duration-300 ease-in-out rounded-2xl mr-1 px-2 py-1 hover:bg-blue-200 text-gray-500 hover:text-gray-800"
-                            >
-                                <a className="" href="#">#barbarbar</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </a>
+                </a>
             </div>
         </div>
     );
