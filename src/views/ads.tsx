@@ -97,7 +97,7 @@ const Ads: React.FC = () => {
                                                 addCategory(category);
                                             }
                                         }}
-                                        className={`w-fit min-w-fit h-8 mx-2 px-5 py-2 flex flex-row justify-center items-center text-sm border break-keep rounded-3xl cursor-pointer transition-all duration-300 ${(selectedCategories.includes(category)) ? 'border-blue-500 bg-blue-500 text-white' : ' border-gray-500 bg-white text-gray-900'} `}>
+                                        className={`w-fit min-w-fit h-8 mx-2 px-5 py-2 flex flex-row justify-center items-center text-sm border break-keep rounded-3xl cursor-pointer transition-all duration-300 ${(selectedCategories.includes(category)) ? 'border-blue-500 bg-blue-200 text-white' : ' border-gray-500 bg-blue-200 text-gray-900'} `}>
                                         {category}
                                     </div>
                                 ))}
