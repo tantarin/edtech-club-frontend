@@ -14,7 +14,7 @@ const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
                     <div>
                     <img
                             src={image}
-                            className="rounded-t-xl border-none"
+                            className="rounded-t-xl border-none w-full h-40 object-cover object-center"
                             alt="Single Project"
                         />
                     </div>
@@ -22,7 +22,7 @@ const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
                         <p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light mb-2">
                         {title}
                         </p>
-                        <p className="mb-4 text-base">
+                        <p className="mb-4 text-base text-slate-500">
                             {category}
                         </p>
                     </div>
