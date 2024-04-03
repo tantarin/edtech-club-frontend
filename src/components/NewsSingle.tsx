@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 interface ProjectSingleProps {
     title: string;
@@ -6,16 +6,17 @@ interface ProjectSingleProps {
     image: number[];
 }
 
-const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
+const NewsSingle = ({title, content, image}: ProjectSingleProps) => {
     const imageData = `data:image/jpeg;base64,${image}`;
 
     return (
-        <div className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative">
+        <div
+            className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative">
             <Link to={`/news/1`}>
                 <div>
                     <img
                         src={imageData}
-                        style={{ width: "100%", height: "200px" }} // Задайте максимальные размеры изображения
+                        style={{width: "100%", height: "200px"}} // Задайте максимальные размеры изображения
                         className="rounded-t-xl border-none"
                         alt={title}
                     />
@@ -29,9 +30,13 @@ const NewsSingle = ({ title, content, image }: ProjectSingleProps) => {
                     </p>
                 </div>
             </Link>
-            <div className="border-t-2 border-neutral-100 px-6 py-2 text-surface/75 dark:border-white/10 dark:text-neutral-300 absolute bottom-1 w-full">
-                <div className="mt-auto">2 days ago</div>
+            <div className="border-t-2 border-neutral-100 px-6 py-2 text-surface/75 dark:border-white/10 dark:text-neutral-300 absolute bottom-1 w-full flex items-center justify-between">
+                <div className="flex items-center">
+                    <div className="text-s mr-2 text-slate-400">31st June, 2022</div>
+                </div>
+                <a className="text-s text-slate-400" href="https://vk.com/share.php?url=https://www.herzen.spb.ru/" target="_blank">Поделиться ВКонтакте</a>
             </div>
+
         </div>
     );
 };
