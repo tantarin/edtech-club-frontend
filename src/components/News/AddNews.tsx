@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { addNews, upload } from "../../services/news.service";
 import { useNavigate } from "react-router-dom";
 import ImageUpload from "../Image/ImageUpload";
+import {TextEditorReact} from "../TextEditor";
 
 interface FormData {
   header: string;
@@ -75,24 +76,25 @@ export default function AddNews() {
               value={formData.header}
               onChange={handleChange}
           />
-
-          <TextField
-              id="content"
-              name="content"
-              label="Содержимое"
-              variant="outlined"
-              multiline
-              rows={4}
-              fullWidth
-              margin="normal"
-              value={formData.content}
-              onChange={handleChange}
-          />
+          {/*<TextField*/}
+          {/*    id="content"*/}
+          {/*    name="content"*/}
+          {/*    label="Содержимое"*/}
+          {/*    variant="outlined"*/}
+          {/*    multiline*/}
+          {/*    rows={4}*/}
+          {/*    fullWidth*/}
+          {/*    margin="normal"*/}
+          {/*    value={formData.content}*/}
+          {/*    onChange={handleChange}*/}
+          {/*/>*/}
+          <TextEditorReact />
 
           <Button type="submit" variant="contained" color="primary">
             Отправить
           </Button>
         </form>
       </div>
+
   );
 }
