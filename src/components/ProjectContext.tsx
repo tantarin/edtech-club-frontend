@@ -38,7 +38,7 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
     // Выбор проектов по категории проекта
     const selectProjectsByCategory = projects.filter((item) => {
         let category =
-            item.category.charAt(0).toUpperCase() + item.category.slice(1);
+            item.description.charAt(0).toUpperCase() + item.description.slice(1);
         return category.includes(selectProject);
     });
 

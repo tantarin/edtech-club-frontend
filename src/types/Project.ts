@@ -1,7 +1,7 @@
 interface Project {
     id: number;
     title: string;
-    category: string;
+    description: string;
     img: string;
     ProjectHeader?: {
         title: string;

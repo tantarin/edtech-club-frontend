@@ -90,7 +90,7 @@ const ProjectsGrid: React.FC = () => {
                     ? selectProjectsByCategory.map((project) => (
                         <ProjectSingle
                             title={project.title}
-                            category={project.category}
+                            category={project.description}
                             image={project.img}
                             key={project.id}
                         />
@@ -99,7 +99,7 @@ const ProjectsGrid: React.FC = () => {
                         ? searchProjectsByTitle.map((project) => (
                             <ProjectSingle
                                 title={project.title}
-                                category={project.category}
+                                category={project.description}
                                 image={project.img}
                                 key={project.id}
                             />
@@ -107,7 +107,7 @@ const ProjectsGrid: React.FC = () => {
                         : projects.map((project) => (
                             <ProjectSingle
                                 title={project.title}
-                                category={project.category}
+                                category={project.description}
                                 image={project.img}
                                 key={project.id}
                             />
