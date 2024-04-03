@@ -53,8 +53,14 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange }) => {
         <div>
             <div className="row">
                 <div className="col-8">
-                    <label className="btn btn-default p-0">
-                        <input type="file" accept="image/*" onChange={selectImage} />
+                    <label className="btn btn-primary p-1">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={selectImage}
+                            style={{ display: 'none' }}
+                        />
+                        Загрузить изображение
                     </label>
                 </div>
             </div>

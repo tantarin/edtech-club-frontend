@@ -1045,15 +1045,15 @@ const editorConfig = {
     ],
 };
 
-export function TextEditorReact() {
+export function TextEditorReact({ inputWidth }) {
     return (
         <LexicalComposer initialConfig={editorConfig}>
-            <div className="relative mx-auto overflow-hidden my-5 w-full max-w-xl rounded-xl border border-gray-300 bg-white text-left font-normal leading-5 text-gray-900">
+            <div className="w-[930px] mx-auto overflow-hidden my-2 w-full rounded-xl border border-gray-300 bg-white text-left font-normal leading-5 text-gray-900">
                 <ToolbarPlugin />
-                <div className="relative rounded-b-lg border-opacity-5 bg-white">
+                <div className="rounded-b-lg border-opacity-5 bg-white w-[930]">
                     <RichTextPlugin
                         contentEditable={
-                            <ContentEditable className="lexical min-h-[280px] resize-none px-2.5 py-4 text-base caret-gray-900 outline-none" />
+                            <ContentEditable className="lexical min-h-[280px] w-[1000px] px-2.5 py-4 text-base caret-gray-900 outline-none" />
                         }
                         placeholder={<Placeholder />}
                         ErrorBoundary={null}

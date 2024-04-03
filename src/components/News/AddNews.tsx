@@ -67,6 +67,7 @@ export default function AddNews() {
         <ImageUpload onChange={handleFileChange} />
         <form onSubmit={handleSubmit}>
           <TextField
+              className="rounded-b-lg bg-white"
               id="header"
               name="header"
               label="Заголовок"
@@ -88,9 +89,9 @@ export default function AddNews() {
           {/*    value={formData.content}*/}
           {/*    onChange={handleChange}*/}
           {/*/>*/}
-          <TextEditorReact />
+            <TextEditorReact inputWidth="700px" />
 
-          <Button type="submit" variant="contained" color="primary">
+            <Button type="submit" variant="contained" color="primary">
             Отправить
           </Button>
         </form>
