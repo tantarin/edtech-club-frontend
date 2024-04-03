@@ -89,12 +89,12 @@ export default function AddNews() {
           {/*    value={formData.content}*/}
           {/*    onChange={handleChange}*/}
           {/*/>*/}
-            <TextEditorReact inputWidth="700px" />
+        </form>
+          <TextEditorReact inputWidth="700px" />
 
             <Button type="submit" variant="contained" color="primary">
             Отправить
           </Button>
-        </form>
       </div>
 
   );
