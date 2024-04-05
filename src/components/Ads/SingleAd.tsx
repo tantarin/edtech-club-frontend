@@ -12,10 +12,8 @@ interface AdData {
 
 
 const SingleAd: React.FC<AdData> = ({ id, header, content , tags, handleDelete}) => {
-    console.error("-----" + tags);
-    console.error("-----" + header);
     return (
-        <div className={clsx("root", "rounded-[10px]")}>
+        <div className={clsx("root", "rounded-[10px] pb-1")}>
             <div id="dismiss-card" className="flex flex-col bg-white rounded-lg dark:shadow-slate-700/[.9]">
                 <div className="inline-flex justify-between items-center rounded-t-xl py-1 px-4 md:py-1 md:px-2 dark:bg-gray-800">
                     <a href="#dismiss-card" className="ml-auto">
