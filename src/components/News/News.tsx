@@ -44,7 +44,7 @@ const News: React.FC = () => {
             {/* Button */}
             <div className="max-w-screen-xl mx-auto px-5 sm:px-5 md:px-5 py-2 sm:py-2 md:py-2 flex justify-start mt-2">
                 <Link to="/addNews" style={{ marginTop: "0rem", marginBottom: "0rem" }}>
-                    <button className="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 shadow-md">
+                    <button className="text-white bg-blue-700 py-2.5 px-5 text-sm font-medium focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
                         Добавить новость
                     </button>
                 </Link>
