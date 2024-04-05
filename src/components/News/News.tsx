@@ -55,6 +55,7 @@ const News: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
                     {content.map((item) => (
                         <NewsSingle
+                            id={item.id}
                             title={item.header}
                             content={item.content}
                             image={item.image}

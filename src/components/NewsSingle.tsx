@@ -1,27 +1,62 @@
 import {Link} from 'react-router-dom';
+import React from "react";
+import {deleteAd} from "../services/ads.service";
 
 interface ProjectSingleProps {
+    id: number;
     title: string;
     content: string;
     image: number[];
 }
 
-const NewsSingle = ({title, content, image}: ProjectSingleProps) => {
+const handleDelete = async (id: number) => {
+    try {
+        // await deleteAd(id);
+        // setContent(prevContent => prevContent.filter(ad => ad.id !== id));
+        // setFilteredAdsList(prevContent => prevContent.filter(ad => ad.id !== id)); // Удаление объявления из отфильтрованного списка
+        // console.log("Ad deleted successfully");
+    } catch (error) {
+        console.error("Error deleting ad:", error);
+    }
+};
+
+const NewsSingle = ({id, title, content, image}: ProjectSingleProps) => {
     const imageData = `data:image/jpeg;base64,${image}`;
 
     return (
         <div
             className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative">
             <Link to={`/news/1`}>
+                <div className="flex justify-end mr-2"> {/* Добавляем родительский div с flex и justify-end */}
+                    <a href="#dismiss-card">
+                        <button
+                            type="button"
+                            className="size-4 rounded-lg text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
+                            data-hs-remove-element="#dismiss-card"
+                            onClick={() => handleDelete(id)}
+                        >
+                            <span className="sr-only">Close</span>
+                            <svg
+                                className="flex-shrink-0 size-7 pr-2"
+                                stroke="currentColor"
+                                fill="currentColor"
+                                stroke-width="0" viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
                 <div>
                     <img
                         src={imageData}
-                        style={{width: "100%", height: "200px"}} // Задайте максимальные размеры изображения
-                        className="rounded-t-xl border-none"
+                        style={{width: "100%", height: "200px"}}
+                        className="border-none"
                         alt={title}
                     />
                 </div>
-                <div className="text-left px-4 py-6">
+                <div className="text-left px-4 py-4">
                     <p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light mb-2 line-clamp-1">
                         {title}
                     </p>
