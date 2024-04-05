@@ -81,6 +81,16 @@ const blockTypeToBlockName = {
     ul: "Bulleted List",
 };
 
+function MyOnChangePlugin({ onChange }) {
+    const [editor] = useLexicalComposerContext();
+    useEffect(() => {
+        return editor.registerUpdateListener(({editorState}) => {
+            onChange(editorState);
+        });
+    }, [editor, onChange]);
+    return null;
+}
+
 function Divider() {
     return <div className="mx-1 h-6 w-px bg-gray-400" />;
 }
@@ -759,6 +769,12 @@ function ToolbarPlugin() {
     const [isItalic, setIsItalic] = useState(false);
     const [isStrikethrough, setIsStrikethrough] = useState(false);
     const [isCode, setIsCode] = useState(false);
+    const [content, setContent] = useState("");
+    const editorRef = useRef(null); // Реф для доступа к содержимому редактора
+
+    const handleContentChange = (newContent) => {
+        setContent(newContent);
+    };
 
     const updateToolbar = useCallback(() => {
         const selection = $getSelection();
@@ -1045,7 +1061,19 @@ const editorConfig = {
     ],
 };
 
-export function TextEditorReact({ inputWidth }) {
+export function TextEditorReact({ inputWidth, onChange }) {
+    const [editorState, setEditorState] = useState('');
+
+    function handleChange(editorState) {
+        const editorStateJSON = editorState.toJSON();
+        const text = editorStateJSON.root.children.map(child =>
+            child.children.map(innerChild => innerChild.text)
+        ).join('');
+        console.log(text)
+        setEditorState(text);
+        onChange(text);
+    }
+
     return (
         <LexicalComposer initialConfig={editorConfig}>
             <div className="w-[930px] mx-auto overflow-hidden my-2 w-full rounded-xl border border-gray-300 bg-white text-left font-normal leading-5 text-gray-900">
@@ -1058,6 +1086,7 @@ export function TextEditorReact({ inputWidth }) {
                         placeholder={<Placeholder />}
                         ErrorBoundary={null}
                     />
+                    <MyOnChangePlugin onChange={handleChange}/>
                     <AutoFocusPlugin />
                     <ListPlugin />
                     <LinkPlugin />

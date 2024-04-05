@@ -17,9 +17,19 @@ export default function AddNews() {
     header: "",
     content: "",
   });
-  const [file, setFile] = useState<File | null>(null); // Хранение файла для загрузки
+  const [file, setFile] = useState<File | null>(null);
+  const [editorContent, setEditorContent] = useState("");
 
-  const handleChange = (
+    const handleEditorChange = (content: string) => {
+        setEditorContent(content); // Сохраняем текст из редактора в состоянии
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            content: content // Обновляем только свойство content в объекте formData
+        }));
+    };
+
+
+    const handleChange = (
       event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
@@ -30,23 +40,28 @@ export default function AddNews() {
     setFile(selectedFile);
   };
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    addNews(formData)
-        .then((response) => {
-          const { id } = response.data;
-          console.log("id" + {id});
-          if (!file) {
-            console.error("No file selected.");
-            return;
-          }
-          uploadImage(id);
-        })
-        .then(() => navigate("/news"))
-        .catch((error) => console.error("Error adding news:", error));
-  };
+    const handleSubmit = async (event: FormEvent) => {
+        event.preventDefault();
+        console.log(formData.content);
+        try {
+            const response = await addNews(formData);
+            const { id } = response.data;
+            console.log("id", id);
 
-  const uploadImage = (id: bigint) => {
+            if (!file) {
+                console.error("No file selected.");
+                return;
+            }
+
+            await uploadImage(id);
+            navigate("/news");
+        } catch (error) {
+            console.error("Error adding news:", error);
+        }
+    };
+
+
+    const uploadImage = (id: bigint) => {
     if (!file) {
       console.error("No file selected.");
       return;
@@ -77,24 +92,12 @@ export default function AddNews() {
               value={formData.header}
               onChange={handleChange}
           />
-          {/*<TextField*/}
-          {/*    id="content"*/}
-          {/*    name="content"*/}
-          {/*    label="Содержимое"*/}
-          {/*    variant="outlined"*/}
-          {/*    multiline*/}
-          {/*    rows={4}*/}
-          {/*    fullWidth*/}
-          {/*    margin="normal"*/}
-          {/*    value={formData.content}*/}
-          {/*    onChange={handleChange}*/}
-          {/*/>*/}
-        </form>
-          <TextEditorReact inputWidth="700px" />
+            <TextEditorReact inputWidth="700px" onChange={handleEditorChange} />
 
             <Button type="submit" variant="contained" color="primary">
-            Отправить
-          </Button>
+                Отправить
+            </Button>
+        </form>
       </div>
 
   );
