@@ -27,6 +27,7 @@ import Wiki from "./views/wiki";
 import Startups from "./views/startups";
 import Ads from "./views/ads";
 import Art from "./views/article";
+import Footer from "./components/Footer/Footer";
 
 const App: React.FC = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
@@ -80,6 +81,7 @@ const App: React.FC = () => {
           <Route path={urls.arts} element={<Art />} />
         </Routes>
       </div>
+      <Footer/>
     </div>
   );
 };
