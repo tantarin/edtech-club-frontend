@@ -35,7 +35,7 @@ export default function AddAds() {
   };
 
   return (
-    <div className="container mt-3">
+      <div className="container mt-3" style={{ height: "80vh" }}>
       <ImageUpload onChange={handleFileChange} />
       <form onSubmit={handleSubmit}>
         <TextField
