@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
-import React from "react";
-import {deleteAd} from "../services/ads.service";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import { deleteAd } from "../services/ads.service";
 
 interface ProjectSingleProps {
     id: number;
@@ -9,45 +9,57 @@ interface ProjectSingleProps {
     image: number[];
 }
 
-const handleDelete = async (id: number) => {
-    try {
-        // await deleteAd(id);
-        // setContent(prevContent => prevContent.filter(ad => ad.id !== id));
-        // setFilteredAdsList(prevContent => prevContent.filter(ad => ad.id !== id)); // Удаление объявления из отфильтрованного списка
-        // console.log("Ad deleted successfully");
-    } catch (error) {
-        console.error("Error deleting ad:", error);
-    }
-};
-
 const NewsSingle = ({id, title, content, image}: ProjectSingleProps) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const imageData = `data:image/jpeg;base64,${image}`;
+
+    const handleDelete = async () => {
+        try {
+            await deleteAd(id);
+            setIsMenuOpen(false); // Закрываем меню после удаления
+            console.log("Ad deleted successfully");
+        } catch (error) {
+            console.error("Error deleting ad:", error);
+        }
+    };
 
     return (
         <div
-            className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative">
-            <Link to={`/news/1`}>
-                <div className="flex justify-end mr-2"> {/* Добавляем родительский div с flex и justify-end */}
-                    <a href="#dismiss-card">
-                        <button
-                            type="button"
-                            className="size-4 rounded-lg text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white text-sm dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
-                            data-hs-remove-element="#dismiss-card"
-                            onClick={() => handleDelete(id)}
+            className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer dark:bg-ternary-dark relative"
+            onMouseLeave={() => setIsMenuOpen(false)}
+        >
+                <div className="flex justify-end mr-3 pb-2"> {/* Добавляем родительский div с flex и justify-end */}
+                    <button
+                        type="button"
+                        className="size-4 rounded-lg"
+                        onClick={() => setIsMenuOpen(prev => !prev)}
+                    >
+                        <span className="sr-only">Close</span>
+                        <svg
+                            className="flex-shrink-0 size-7 pr-2 hover:fill-cyan-700"
+                            stroke="currentColor"
+                            fill="currentColor"
+                            strokeWidth="0" viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
                         >
-                            <span className="sr-only">Close</span>
-                            <svg
-                                className="flex-shrink-0 size-7 pr-2"
-                                stroke="currentColor"
-                                fill="currentColor"
-                                stroke-width="0" viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
-                            </svg>
-                        </button>
-                    </a>
+                            <path
+                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            />
+                        </svg>
+                    </button>
+                    {isMenuOpen && (
+                        <div className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                            <button
+                                type="button"
+                                className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                onClick={handleDelete}
+                            >
+                                Удалить
+                            </button>
+                        </div>
+                    )}
                 </div>
+            <Link to={`/news/1`}>
                 <div>
                     <img
                         src={imageData}
