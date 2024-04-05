@@ -5,6 +5,10 @@ import { addNews, upload } from "../../services/news.service";
 import { useNavigate } from "react-router-dom";
 import ImageUpload from "../Image/ImageUpload";
 import {TextEditorReact} from "../TextEditor";
+import {Snackbar} from "@mui/material";
+import MuiAlert from "@mui/material/Alert";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 interface FormData {
   header: string;
@@ -19,6 +23,7 @@ export default function AddNews() {
   });
   const [file, setFile] = useState<File | null>(null);
   const [editorContent, setEditorContent] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     const handleEditorChange = (content: string) => {
         setEditorContent(content); // Сохраняем текст из редактора в состоянии
@@ -40,23 +45,28 @@ export default function AddNews() {
     setFile(selectedFile);
   };
 
+    const handleClose = () => {
+        setError(null); // Закрытие Snackbar
+    };
+
+
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         console.log(formData.content);
         try {
+            if (!file) {
+                throw new Error("Необходимо загрузить изображение");
+            }
+
             const response = await addNews(formData);
             const { id } = response.data;
             console.log("id", id);
 
-            if (!file) {
-                console.error("No file selected.");
-                return;
-            }
-
             await uploadImage(id);
             navigate("/news");
-        } catch (error) {
+        } catch (error: any) { // Указание типа error как any
             console.error("Error adding news:", error);
+            setError(error.message); // Установка ошибки
         }
     };
 
@@ -98,6 +108,11 @@ export default function AddNews() {
                 Отправить
             </Button>
         </form>
+          <Snackbar open={!!error} autoHideDuration={6000} onClose={handleClose}>
+              <MuiAlert elevation={6} variant="filled" severity="error" onClose={handleClose}>
+                  {error}
+              </MuiAlert>
+          </Snackbar>
       </div>
 
   );
