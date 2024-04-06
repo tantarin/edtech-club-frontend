@@ -53,7 +53,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange }) => {
         <div>
             <div className="row">
                 <div className="col-8">
-                    <label className="btn btn-primary p-1">
+                    <label className="inline-block text-white bg-blue-700 py-2.5 px-3 text-sm font-medium focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
                         <input
                             type="file"
                             accept="image/*"

@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { addNews, upload } from "../../services/news.service";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import ImageUpload from "../Image/ImageUpload";
 import {TextEditorReact} from "../TextEditor";
 import {Snackbar} from "@mui/material";
@@ -101,12 +101,14 @@ export default function AddNews() {
               margin="normal"
               value={formData.header}
               onChange={handleChange}
+              InputProps={{
+                  disableUnderline: true,
+              }}
           />
             <TextEditorReact inputWidth="700px" onChange={handleEditorChange} />
-
-            <Button type="submit" variant="contained" color="primary">
-                Отправить
-            </Button>
+            <button type="submit" className="text-white bg-blue-700 py-2.5 px-5 text-sm font-medium focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
+                Добавить новость
+            </button>
         </form>
           <Snackbar open={!!error} autoHideDuration={6000} onClose={handleClose}>
               <MuiAlert elevation={6} variant="filled" severity="error" onClose={handleClose}>

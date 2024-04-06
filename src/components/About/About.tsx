@@ -46,7 +46,11 @@ export const AboutPage: FC = () => {
                 образовательным материалам сообщества: журналам, видео и
                 новостям!
               </p>
-                <Link className="about-more__card__button" to={"/register"}>Зарегистрироваться</Link>
+                <Link to={"/register"} style={{ marginTop: "0rem", marginBottom: "0rem" }}>
+                  <button className="text-white bg-blue-700 py-2.5 px-5 text-sm font-medium focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
+                    Зарегистрироваться
+                  </button>
+                </Link>
             </div>
           </div>
         </div>

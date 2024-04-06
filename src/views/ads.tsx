@@ -79,10 +79,10 @@ const Ads: React.FC = () => {
             <Container>
                 <div className="gap-4 flex flex-col mt-2">
                     {(
-                        <Link to="/addAds" style={{textDecoration: "none"}}>
-                            <Button variant="contained" color="primary" sx={{height: 50}}>
+                        <Link to={"/addAds"} style={{ marginTop: "0rem", marginBottom: "0rem" }}>
+                            <button className="text-white bg-blue-700 py-2.5 px-3 text-sm font-medium focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
                                 Добавить объявление
-                            </Button>
+                            </button>
                         </Link>
                     )}
                         <div className='w-full h-[90%] rounded-md bg-transparent'>
