@@ -1,8 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../config/config";
+import { API_URL_TEST } from "../config/config";
 
 export const register = (username: string, email: string, password: string) => {
-  return axios.post(API_URL + "register", {
+  return axios.post(API_URL_TEST + "register", {
     username,
     email,
     password,
@@ -11,7 +11,7 @@ export const register = (username: string, email: string, password: string) => {
 
 export const login = (username: string, password: string) => {
   return axios
-    .post(API_URL + "login", {
+    .post(API_URL_TEST + "login", {
       username,
       password,
     })

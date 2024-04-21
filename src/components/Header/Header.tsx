@@ -97,7 +97,7 @@ export default function Header(props: HeaderProps) {
               {pages.map((page, index) => (
                   <li key={index}>
                     <a href={page.href}
-                        className="font-semibold text-gray-600 hover:text-blue-600 text-white">
+                        className="font-semibold text-gray-600 hover:text-blue-600 text-white dark:md:hover:bg-fuchsia-600">
                       {page.name}
                     </a>
                   </li>
