@@ -60,7 +60,7 @@ const App: React.FC = () => {
   return (
     <div className="max-w-full">
       <Header currentUser={currentUser} logOut={logOut} />
-      <div>
+      <div className="flex flex-col min-h-screen">
         <Routes>
           <Route path={urls.main} element={<AboutPage />} />
           <Route path={urls.news} element={<News />} />

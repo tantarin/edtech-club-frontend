@@ -5,7 +5,7 @@ import MailIcon from "./icons/MailIcon";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="about__social-section">
+        <footer className="mt-auto bg-[#0F1727] items-center justify-between p-6">
             <ul className="about__social-links">
                 <li className="about__social-links-item">
                     <a

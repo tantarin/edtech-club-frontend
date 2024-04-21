@@ -108,12 +108,6 @@
   font-weight: 600;
 }
 
-.about__social-section {
-  height: 80px;
-  width: 100%;
-  background-color: black;
-}
-
 .about__social-links {
   display: flex;
   justify-content: center;
