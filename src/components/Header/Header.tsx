@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { Dialog, Popover } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 import IUser from "../../types/user.type";
 import { urls } from "../../config/config";
-import { Link } from "react-router-dom";
 
 const pages = [
   {
@@ -43,122 +41,97 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   const { currentUser, logOut } = props;
-
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
   return (
-    <header className="bg-[#0F1727]">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
-        <Popover.Group className="hidden items-center lg:flex lg:gap-x-6">
-          <Link
-            to={urls.main}
-            className="text-[20px] text-gray hover:text-gray hover:no-underline"
-          >
-            EdTech Startup Club
-          </Link>
-          {pages.map(page => (
-            <Link
-              key={page.href}
-              className="text-sm font-semibold leading-6 text-white"
-              to={page.href}
-            >
-              {page.name}
-            </Link>
-          ))}
-        </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {currentUser ? (
-            <div className="flex gap-x-[15px]">
+      <nav className="w-full bg-[#0F1727] shadow">
+        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+          <div>
+            <div className="flex items-center justify-between py-3 md:py-3 md:block">
               <Link
-                className="text-white hover:no-underline italic"
-                to={urls.profile}
+                  to={urls.main}
+                  className="text-[20px] text-gray hover:text-gray hover:no-underline"
               >
-                {currentUser.username}
+                EdTech Startup Club
               </Link>
-              <Link to={urls.register} className="text-sm font-semibold leading-6 text-white">
+              <div className="md:hidden">
                 <button
-                    onClick={logOut}
-                    className="text-sm font-semibold leading-6 text-white">
-                  Выход <span aria-hidden="true">&rarr;</span>
+                    className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                    onClick={() => setNavbar(!navbar)}
+                >
+                  {navbar ? (
+                      <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-6 h-6 text-white"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                      >
+                        <path
+                            fillRule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                        />
+                      </svg>
+                  ) : (
+                      <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        />
+                      </svg>
+                  )}
                 </button>
-              </Link>
-            </div>
-          ) : (
-            <Link
-              to="/login"
-              className="text-sm font-semibold leading-6 text-white"
-            >
-              Вход <span aria-hidden="true">&rarr;</span>
-            </Link>
-          )}
-        </div>
-      </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Link to={urls.main} className="text-[20px] text-gray">
-                  EdTech Startup Club
-                </Link>
-                {pages.map(page => (
-                  <Link
-                    key={page.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-50"
-                    to={page.href}
-                  >
-                    {page.name}
-                  </Link>
-                ))}
               </div>
-              <div className="py-6">
-                {currentUser ? (
-                  <div>
-                    <Link to={urls.profile}> {currentUser.username || "Testirovchik"}</Link>
-                    <button onClick={logOut}>Выход</button>
+            </div>
+          </div>
+
+          <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 my-0">
+              {pages.map((page, index) => (
+                  <li key={index}>
+                    <a href={page.href}
+                        className="font-semibold text-gray-600 hover:text-blue-600 text-white">
+                      {page.name}
+                    </a>
+                  </li>
+              ))}
+            </ul>
+          <div className="hidden md:inline-block">
+            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+              {currentUser ? (
+                  <div className="flex gap-x-[15px]">
+                    <Link
+                        className="text-white hover:no-underline italic"
+                        to={urls.profile}
+                    >
+                      {currentUser.username}
+                    </Link>
+                    <Link to={urls.register} className="text-sm font-semibold leading-6 text-white">
+                      <button
+                          onClick={logOut}
+                          className="text-sm font-semibold leading-6 text-white">
+                        Выход <span aria-hidden="true">&rarr;</span>
+                      </button>
+                    </Link>
                   </div>
-                ) : (
-                  <Link to="/login" className="text-sm font-semibold leading-6 text-white">
+              ) : (
+                  <Link
+                      to="/login"
+                      className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+                  >
                     Вход <span aria-hidden="true">&rarr;</span>
                   </Link>
-                )}
-              </div>
-              <li className="py-6">
-                <Link to={urls.register} className="text-sm font-semibold leading-6 text-white">
-                  Регистрация <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </li>
+              )}
             </div>
           </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
+        </div>
+      </nav>
   );
 }
