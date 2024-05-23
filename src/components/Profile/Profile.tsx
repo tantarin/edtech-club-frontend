@@ -44,7 +44,7 @@ export default function Profile() {
                                  alt="Bordered avatar" />
                             <div className="flex flex-col space-y-5 sm:ml-8">
                               <button type="button"
-                                      className="py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-[#202142] rounded-lg border border-indigo-200 hover:bg-indigo-900 focus:z-10 focus:ring-4 focus:ring-indigo-200 ">
+                                      className="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-[#f7f5f6] rounded-lg border border-indigo-200 hover:bg-indigo-100 focus:z-10 focus:ring-4 focus:ring-indigo-200 ">
                                 Изменить аватар
                               </button>
                               <button type="button"
