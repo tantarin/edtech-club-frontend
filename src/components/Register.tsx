@@ -139,7 +139,7 @@ const Register: React.FC = () => {
               )}
             </Form>
           </Formik>
-          <Link className="mx-auto" to={"/login"}>
+          <Link className="mx-auto btn btn-primary btn-block" to={"/login"}>
             Вход
           </Link>
         </div>
