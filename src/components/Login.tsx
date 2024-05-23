@@ -99,7 +99,7 @@ const Login: React.FC<Props> = () => {
                   {loading && (
                     <span className="spinner-border spinner-border-sm"></span>
                   )}
-                  <span>Login</span>
+                  <span>Вход</span>
                 </button>
               </div>
 
@@ -112,7 +112,7 @@ const Login: React.FC<Props> = () => {
               )}
             </Form>
           </Formik>
-        <Link className='mx-auto' to={"/register"}>Register</Link>
+        <Link className='mx-auto' to={"/register"}>Регистрация</Link>
         </div>
       </div>
     </div>
