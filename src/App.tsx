@@ -58,9 +58,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="max-w-full">
+    <div className="flex flex-col max-w-full min-h-screen">
       <Header currentUser={currentUser} logOut={logOut} />
-      <div className="flex flex-col min-h-screen">
+      <div>
         <Routes>
           <Route path={urls.main} element={<AboutPage />} />
           <Route path={urls.news} element={<News />} />
