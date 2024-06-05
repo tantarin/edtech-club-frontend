@@ -1,0 +1,7 @@
+.sidebarContainer {
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
