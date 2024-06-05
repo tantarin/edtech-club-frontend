@@ -1,4 +1,3 @@
-import { Reducer, useCallback, useReducer } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -26,7 +25,6 @@ const ContactForm: React.FC = () => {
         onSubmit: async (val, { setStatus }) => {
             setStatus('pending')
             setTimeout(() => {
-                console.log('submitted', val)
                 setStatus('success')
             }, 1000)
         },
