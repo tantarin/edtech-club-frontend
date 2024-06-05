@@ -24,10 +24,6 @@ const NewsList: React.FC<{articles: Article[]}> = ({articles}) => {
                         <h2 className="font-bold text-2xl mb-5 lg:text-4xl">{title}</h2>
                         <p>{description}</p>
                         <ul className="my-4">
-                            {/* <li>
-                            <span className="font-bold">Word Count: </span>
-                            {word_count}
-                        </li> */}
                         </ul>
                         <a href={url} target="_blank" rel="noopener noreferrer" className="underline">
                             Перейти в источник

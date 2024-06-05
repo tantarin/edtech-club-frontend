@@ -1,8 +1,7 @@
 import * as AuthService from "../../services/auth.service";
-
 import EventBus from "../../common/EventBus";
 import { memo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom"; // Импортируем NavLink
 import IUser from "../../types/user.type";
 import { urls } from "../../config/config";
 
@@ -37,7 +36,6 @@ const pages = [
   },
 ];
 
-
 function Header() {
   const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
   const [showAdminBoard, setShowAdminBoard] = useState<boolean>(false);
@@ -65,8 +63,6 @@ function Header() {
     setShowAdminBoard(false);
     setCurrentUser(undefined);
   };
-
-
 
   const [navbar, setNavbar] = useState(false);
 
@@ -121,15 +117,19 @@ function Header() {
           </div>
 
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 my-0">
-              {pages.map((page, index) => (
-                  <li key={index}>
-                    <a href={page.href}
-                        className="font-semibold text-gray-600 hover:text-blue-600 text-white dark:md:hover:bg-fuchsia-600">
-                      {page.name}
-                    </a>
-                  </li>
-              ))}
-            </ul>
+            {pages.map((page, index) => (
+                <li key={index}>
+                  <NavLink
+                      to={page.href}
+                      className={({ isActive }) =>
+                          `font-semibold text-gray-600 hover:text-blue-600 text-white dark:md:hover:bg-fuchsia-600 ${isActive ? 'underline' : ''}`
+                      }
+                  >
+                    {page.name}
+                  </NavLink>
+                </li>
+            ))}
+          </ul>
           <div className="hidden md:inline-block">
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               {currentUser ? (

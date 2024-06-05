@@ -22,10 +22,12 @@ export interface ResponseNews {
 }
 
 export const fetchNews = async () => {
-    const newsUrl = 'https://newsapi.org/v2/top-headlines?' + new URLSearchParams({
+    const newsUrl = 'https://newsapi.org/v2/everything?' + new URLSearchParams({
+      //  sources: 'Фонтанка.ру',
+        q: 'образование технологии',
         language: 'ru',
-        category: 'science',
-        sortBy: 'popularity',
+        // category: 'science',
+        sortBy: 'relevancy',
         apiKey: token || '',
     });
     if (!token) throw new Error('cant handle token from env')
