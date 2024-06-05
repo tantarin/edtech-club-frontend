@@ -21,7 +21,7 @@ function SearchForm({ searchText }: SearchFormProps) {
                     className="py-1 px-2 rounded-l-lg"
                     onChange={(e) => setText(e.target.value)}
                 />
-                <button type="submit" className="bg-green-400 py-1 px-2 rounded-r-lg text-white">
+                <button type="submit" className="bg-blue-400 py-1 px-2 rounded-r-lg text-white">
                     Search
                 </button>
             </form>
