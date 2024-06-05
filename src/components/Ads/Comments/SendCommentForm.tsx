@@ -47,7 +47,7 @@ const SendCommentForm = () => {
                             className="block uppercase text-gray-700 text-xs font-bold mb-2"
                             htmlFor="commentMessage"
                         >
-                            Message
+                            Сообщение
                         </label>
                         <TextareaAutosize
                             id="commentMessage"

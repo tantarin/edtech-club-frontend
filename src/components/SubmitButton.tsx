@@ -39,7 +39,7 @@ function SubmitButton({ status, className }: { status: any, className?: string }
                         Sending...
                     </>
                     :
-                    <>Send Message</>
+                    <>Отправить сообщение</>
             }
         </button>
     );
