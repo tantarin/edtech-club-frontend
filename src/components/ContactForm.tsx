@@ -35,10 +35,10 @@ const ContactForm: React.FC = () => {
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                 <div className="flex-auto p-5 lg:p-10">
                     <h4 className="text-2xl font-semibold">
-                        Want to work with us?
+                        Хотите работать с нами?
                     </h4>
                     <p className="leading-relaxed mt-1 mb-4 text-gray-600">
-                        Complete this form and we will get back to you in 24 hours.
+                        Заполните эту форму и отправьте нам сообщение
                     </p>
                     <div className="relative w-full mb-3 mt-8">
                         <label
@@ -123,7 +123,7 @@ function SubmitButton({ status }: { status: any }) {
             {status === "success" ?
                 <>
                     <svg className="stroke-white fill-white h-5 w-5 mr-2" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path></svg>
-                    Message Sent
+                    Сообщение отправлено
                 </>
                 : status === "pending" ?
                     <>
@@ -134,7 +134,7 @@ function SubmitButton({ status }: { status: any }) {
                         Sending...
                     </>
                     :
-                    <>Send Message</>
+                    <>Отправить сообщение</>
             }
         </button>
     );

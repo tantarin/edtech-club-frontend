@@ -204,11 +204,6 @@ const Accel: React.FC = () => {
                                 <h2 className="text-4xl font-semibold">
                                     Наши менторы
                                 </h2>
-                                <p className="text-lg leading-relaxed m-4 text-gray-600">
-                                    According to the National Oceanic and Atmospheric
-                                    Administration, Ted, Scambos, NSIDClead scentist, puts the
-                                    potentially record maximum.
-                                </p>
                             </div>
                         </div>
                         <div className="flex flex-wrap">
@@ -392,13 +387,9 @@ const Accel: React.FC = () => {
                     <div className="container mx-auto px-4 lg:pt-24 lg:pb-64">
                         <div className="flex flex-wrap text-center justify-center">
                             <div className="w-full lg:w-6/12 px-4">
-                                <h2 className="text-4xl font-semibold text-white">
-                                    Build something
+                                <h2 className="text-4xl font-semibold text-blue">
+                                    Тебе определенно к нам, если ты
                                 </h2>
-                                <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-                                    Put the potentially record low maximum sea ice extent tihs year down to low ice.
-                                    According to the National Oceanic and Atmospheric Administration, Ted, Scambos.
-                                </p>
                             </div>
                         </div>
                         <div className="flex flex-wrap mt-12 justify-center">
@@ -406,36 +397,33 @@ const Accel: React.FC = () => {
                                 <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                                     <i className="fas fa-medal text-xl"></i>
                                 </div>
-                                <h6 className="text-xl mt-5 font-semibold text-white">
-                                    Excelent Services
+                                <h6 className="text-xl mt-5 font-semibold text-blue">
+                                    Запустил проект
                                 </h6>
                                 <p className="mt-2 mb-4 text-gray-500">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
+                                    но не знаешь как его масштабировать
                                 </p>
                             </div>
                             <div className="w-full lg:w-3/12 px-4 text-center">
                                 <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                                     <i className="fas fa-poll text-xl"></i>
                                 </div>
-                                <h5 className="text-xl mt-5 font-semibold text-white">
-                                    Grow your market
+                                <h5 className="text-xl mt-5 font-semibold text-blue">
+                                    Хочешь найти единомышленников
                                 </h5>
                                 <p className="mt-2 mb-4 text-gray-500">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
+                                    для реализации своих идей
                                 </p>
                             </div>
                             <div className="w-full lg:w-3/12 px-4 text-center">
                                 <div className="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                                     <i className="fas fa-lightbulb text-xl"></i>
                                 </div>
-                                <h5 className="text-xl mt-5 font-semibold text-white">
-                                    Launch time
+                                <h5 className="text-xl mt-5 font-semibold text-blue">
+                                    Твоим знаниям
                                 </h5>
                                 <p className="mt-2 mb-4 text-gray-500">
-                                    Some quick example text to build on the card title and make up
-                                    the bulk of the card's content.
+                                    не хватает практики
                                 </p>
                             </div>
                         </div>

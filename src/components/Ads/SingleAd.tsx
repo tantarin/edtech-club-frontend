@@ -60,9 +60,6 @@ const SingleAd: React.FC<AdData> = ({ id, header, content, tags, handleDelete })
                         <div className="justify-between sm:flex">
                             <header>
                                 <h5 className="text-xl font-bold text-slate-900">{header}</h5>
-                                <p className="mt-1 text-xs font-medium text-slate-600">
-                                    By Ana Doe
-                                </p>
                             </header>
                             <figure className="flex-shrink-0 hidden ml-3 sm:block">
                                 <img
