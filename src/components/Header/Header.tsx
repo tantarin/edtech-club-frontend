@@ -1,4 +1,7 @@
-import { useState } from "react";
+import * as AuthService from "../../services/auth.service";
+
+import EventBus from "../../common/EventBus";
+import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import IUser from "../../types/user.type";
 import { urls } from "../../config/config";
@@ -34,13 +37,37 @@ const pages = [
   },
 ];
 
-type HeaderProps = {
-  currentUser: IUser | undefined;
-  logOut: () => void;
-};
 
-export default function Header(props: HeaderProps) {
-  const { currentUser, logOut } = props;
+function Header() {
+  const [showModeratorBoard, setShowModeratorBoard] = useState<boolean>(false);
+  const [showAdminBoard, setShowAdminBoard] = useState<boolean>(false);
+  const [currentUser, setCurrentUser] = useState<IUser | undefined>(undefined);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
+      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+    }
+
+    EventBus.on("logout", logOut);
+
+    return () => {
+      EventBus.remove("logout", logOut);
+    };
+  }, []);
+
+  const logOut = () => {
+    AuthService.logout();
+    setShowModeratorBoard(false);
+    setShowAdminBoard(false);
+    setCurrentUser(undefined);
+  };
+
+
+
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -135,3 +162,5 @@ export default function Header(props: HeaderProps) {
       </nav>
   );
 }
+
+export default memo(Header);
