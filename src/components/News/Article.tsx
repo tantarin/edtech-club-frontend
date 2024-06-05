@@ -17,21 +17,6 @@ export default function Article() {
                             className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
                             <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
                                 <h1 className="text-gray-900 font-bold text-3xl mb-2">Клуб образовательных стартапов</h1>
-                                <p className="text-gray-700 text-xs mt-2">Written By:
-                                    <a href="#"
-                                       className="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                                        Ahmad Sultani
-                                    </a> In
-                                    <a href="#"
-                                       className="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                                        Election
-                                    </a>,
-                                    <a href="#"
-                                       className="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                                        Politics
-                                    </a>
-                                </p>
-
                                 <p className="text-base leading-8 my-5">
                                     Первая встреча сообщества по исследованию рынка образовательных технологий EdTech. Будут обсуждаться идеи для образовательных инноваций и стартапов, планируются встречи с представителями рынка, подготовка, презентация, питчинг проектов, поиск наставников, встречи с потенциальными инвесторами.
 

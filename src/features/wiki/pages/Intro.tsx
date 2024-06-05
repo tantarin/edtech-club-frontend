@@ -12,21 +12,6 @@ const IntroPage = () => {
                     className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
                     <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
                         <h1 className="text-gray-900 font-bold text-3xl mb-2">Что такое EdTech</h1>
-                        <p className="text-gray-700 text-xs mt-2">Written By:
-                            <a href="#"
-                                className="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                                Ahmad Sultani
-                            </a> In
-                            <a href="#"
-                                className="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                                Election
-                            </a>,
-                            <a href="#"
-                                className="text-xs text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
-                                Politics
-                            </a>
-                        </p>
-
                         <p className="text-base leading-8 my-5">
                             В медиа EdTech часто выступает синонимом онлайн-образования, однако на самом деле это понятие гораздо шире и включает весь набор цифровых инструментов, направленных на повышение эффективности образовательного процесса.
 
