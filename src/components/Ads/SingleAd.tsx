@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import Comments from "./Comments/Comments";
 import OpenCommentsButton from "./Comments/OpenCommentsButton";
@@ -16,6 +16,12 @@ interface AdData {
 
 const SingleAd: React.FC<AdData> = ({ id, header, content, tags, handleDelete }) => {
     const [showComments, setShowComments] = useState(false);
+    const [randomId, setRandomId] = useState<number>(1);
+
+    useEffect(() => {
+        const randomId = Math.floor(Math.random() * 5) + 1;
+        setRandomId(randomId);
+    }, []);
 
     return (
         <article className={clsx("root", "rounded-[10px] pb-1")}>
@@ -61,7 +67,7 @@ const SingleAd: React.FC<AdData> = ({ id, header, content, tags, handleDelete })
                             <figure className="flex-shrink-0 hidden ml-3 sm:block">
                                 <img
                                     className="object-cover w-16 h-16 rounded-lg shadow-sm"
-                                    src={`https://github.com/creativetimofficial/argon-design-system/blob/master/assets/img/faces/team-${id}.jpg?raw=true`}
+                                    src={`https://github.com/creativetimofficial/argon-design-system/blob/master/assets/img/faces/team-${randomId}.jpg?raw=true`}
                                     alt=""
                                 />
                                 <figcaption className="sr-only">By Ana Doe</figcaption>
