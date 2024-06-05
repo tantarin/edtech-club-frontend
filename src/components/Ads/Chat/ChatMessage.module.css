@@ -1,0 +1,12 @@
+.userInfo {
+    margin-bottom: 0.3rem;
+}
+
+.message {
+    display: flex;
+    max-width: 86%;
+    background: #ddecff;
+    padding: 0.3rem 0.6rem;
+    margin: 0 0.2rem;
+    border-radius: 0.8rem;
+}

@@ -1,19 +1,33 @@
 "use client";
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import WikiNavSearch from "../features/wiki/components/WikiNavSearch";
+import WikiNav from "../features/wiki/components/WikiNav";
+import WikiContent from "../features/wiki/wiki";
+import { Link } from "react-router-dom";
+import { FilterContextPropvider } from "../features/wiki/context/FIlterContext";
 
-const Wiki: React.FC = () => {
+import styles from './wiki.module.css'
+
+const WikiPage: React.FC = () => {
     return (
-        <div>
-            <div className="pt-0 pr-0 pb-0 pl-0 mt-0 mr-0 mb-0">
+        <div className="bg-white flex h-full">
+            <div className={styles.sidebarContainer}>
+                <div className="flex items-center px-3 pt-2">
+                    <Link to='/wiki'>
+                        <h2 className="text-xl font-bold">База знаний</h2>
+                    </Link>
+                </div>
+                <FilterContextPropvider>
+                    <WikiNavSearch />
+                    <WikiNav />
+                </FilterContextPropvider>
+            </div>
 
+            <div className="container mx-auto overflow-auto">
+                <WikiContent />
             </div>
-            <div className="bg-white"></div>
-            <div className="bg-white">
-                <Sidebar />
-            </div>
-        </div >
+        </div>
     );
 }
 
-export default Wiki;
+export default WikiPage;

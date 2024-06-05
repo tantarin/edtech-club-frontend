@@ -1,17 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
+import { StyledEngineProvider } from '@mui/material/styles';
+import App from './App';
+import './styles/output.css'
 import './styles/index.css';
 import './styles/color.css'
-import './styles/output.css'
-import App from './App';
-import './css/main.css';
+// import './css/main.css';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container!)
+
+root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App />
+            <StyledEngineProvider injectFirst>
+                <App />
+            </StyledEngineProvider>
         </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );

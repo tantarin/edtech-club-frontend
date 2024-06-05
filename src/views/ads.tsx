@@ -13,8 +13,35 @@ interface AdData {
     tags: string[];
 }
 
+const mockAd = [
+    {
+        id: 123,
+        header: 'Ищем опытного программиста',
+        content: 'бла бла бла',
+        tags: ["Frontend", "Backend", "Fullstack"]
+    },
+    {
+        id: 456,
+        header: 'Ищем опытного программиста',
+        content: 'бла бла бла',
+        tags: ["Frontend", "Backend", "Fullstack"]
+    },
+    {
+        id: 789,
+        header: 'Ищем опытного программиста',
+        content: 'бла бла бла',
+        tags: ["Frontend", "Backend", "Fullstack"]
+    },
+    {
+        id: 234,
+        header: 'Ищем опытного программиста',
+        content: 'бла бла бла',
+        tags: ["Frontend", "Backend", "Fullstack"]
+    },
+]
+
 const Ads: React.FC = () => {
-    const [content, setContent] = useState<AdData[]>([]);
+    const [content, setContent] = useState<AdData[]>(mockAd);
     const [error, setError] = useState<string | null>(null); // Стейт для отображения ошибки
     const [categories, setTags] = useState(["Frontend", "Backend", "Fullstack", "UXUI", "Marketing"]);
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]); // Исправлен тип для selectedCategories
@@ -88,8 +115,8 @@ const Ads: React.FC = () => {
                         <div className='w-full h-[90%] rounded-md bg-transparent'>
                             <div className='relative w-full h-[15%] flex items-center overflow-x-auto'>
                                 <span className='mx-2 ml-0 font-medium'> Фильтр по категориям: </span>
-                                {categories.map((category) => (
-                                    <div
+                                {categories.map((category, idx) => (
+                                    <div key={`${category}${idx}`}
                                         onClick={() => {
                                             if (selectedCategories.includes(category)) {
                                                 removeCategory(category);

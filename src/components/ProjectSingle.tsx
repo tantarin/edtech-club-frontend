@@ -8,11 +8,11 @@ interface ProjectSingleProps {
 
 const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
     return (
-        <div className="transform  rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105">
+        <div className="transform rounded-xl bg-white shadow-xl transition duration-300 hover:scale-105">
             <Link to="/projects/single-project" aria-label="Single Project">
-                <div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
+                <div className="h-full rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
                     <div>
-                    <img
+                        <img
                             src={image}
                             className="rounded-t-xl border-none w-full h-40 object-cover object-center"
                             alt="Single Project"
@@ -20,7 +20,7 @@ const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
                     </div>
                     <div className="text-center px-4 py-6">
                         <p className="font-general-medium text-lg md:text-xl text-ternary-dark dark:text-ternary-light mb-2">
-                        {title}
+                            {title}
                         </p>
                         <p className="mb-4 text-base text-slate-500">
                             {category}
@@ -28,7 +28,7 @@ const ProjectSingle = ({ title, category, image }: ProjectSingleProps) => {
                     </div>
                 </div>
             </Link>
-         </div>
+        </div>
     );
 };
 
