@@ -63,7 +63,7 @@ const NewsSingle = ({id, title, content, image}: ProjectSingleProps) => {
                 <div>
                     <img
                         src={imageData}
-                        style={{width: "100%", height: "200px"}}
+                        style={{width: "100%", height: "220px"}}
                         className="border-none"
                         alt={title}
                     />

@@ -3,14 +3,8 @@ import { useAsync } from "../../../common/useAsync";
 
 const commentsMock: Comment[] = [
     {
-        author: 'Иван',
-        text: 'я первый',
-        time: new Date(Date.now()).toISOString(),
-        id: 'id',
-    },
-    {
         author: 'Дмитрий',
-        text: 'думаю... возможно это лучшее, что я видел',
+        text: 'классный стартап! удачи',
         time: new Date(Date.now()).toISOString(),
         id: 'id',
     },
