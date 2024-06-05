@@ -1,0 +1,19 @@
+.container {
+    height: 100%; 
+    minWidth: 350px;
+    background-color: #fff;
+    border-radius:0;
+}
+
+.textarea {
+    background: #fff;
+    padding: 0.8rem 1rem;
+    border: 1px solid #d3d6d6;
+    border-radius: 1rem;
+    width: 100%;
+    overflow: auto;
+}
+
+.submitButton {
+
+}
