@@ -118,7 +118,7 @@ const Register: React.FC = () => {
                   </div>
 
                   <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block">
+                    <button type="submit" className="bg-blue-700 mx-auto btn btn-primary btn-block">
                       Регистрация
                     </button>
                   </div>
@@ -139,7 +139,7 @@ const Register: React.FC = () => {
               )}
             </Form>
           </Formik>
-          <Link className="mx-auto btn btn-primary btn-block" to={"/login"}>
+          <Link className="mx-auto btn btn-primary btn-block bg-blue-700" to={"/login"}>
             Вход
           </Link>
         </div>

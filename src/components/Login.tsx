@@ -93,7 +93,7 @@ const Login: React.FC<Props> = () => {
               <div className="form-group">
                 <button
                   type="submit"
-                  className="btn btn-primary btn-block"
+                  className="bg-blue-700 btn btn-primary btn-block"
                   disabled={loading}
                 >
                   {loading && (
@@ -112,7 +112,7 @@ const Login: React.FC<Props> = () => {
               )}
             </Form>
           </Formik>
-        <Link className='mx-auto' to={"/register"}>Регистрация</Link>
+        <Link className='mx-auto btn btn-primary btn-block bg-blue-700' to={"/register"}>Регистрация</Link>
         </div>
       </div>
     </div>
