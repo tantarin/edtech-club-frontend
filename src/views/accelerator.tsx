@@ -2,7 +2,7 @@ import React from "react";
 import ContactForm from "../components/ContactForm";
 
 const team1 = require('../assets/img/team-1-800x800.jpg');
-const team2 = require('../assets/img/team-2-800x800.jpg');
+const team5 = require('../assets/img/team-5-800x800.jpg');
 const team3 = require('../assets/img/team-3-800x800.jpg');
 const team4 = require('../assets/img/team-4-470x470.png');
 
@@ -211,13 +211,13 @@ const Accel: React.FC = () => {
                                 <div className="px-6">
                                     <img
                                         alt="..."
-                                        src={String(team1)}
+                                        src={String(team5)}
                                         className="shadow-lg rounded-full max-w-full mx-auto"
                                         style={{ maxWidth: "120px" }}
                                     />
                                     <div className="pt-6 text-center">
                                         <h5 className="text-xl font-bold">
-                                            Ryan Tompson
+                                           Николай Жуков
                                         </h5>
                                         <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                             Web Developer
@@ -249,13 +249,13 @@ const Accel: React.FC = () => {
                                 <div className="px-6">
                                     <img
                                         alt="..."
-                                        src={String(team2)}
+                                        src={String(team1)}
                                         className="shadow-lg rounded-full max-w-full mx-auto"
                                         style={{ maxWidth: "120px" }}
                                     />
                                     <div className="pt-6 text-center">
                                         <h5 className="text-xl font-bold">
-                                            Romina Hadid
+                                            Иван Иванов
                                         </h5>
                                         <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                             Marketing Specialist
@@ -287,7 +287,7 @@ const Accel: React.FC = () => {
                                     />
                                     <div className="pt-6 text-center">
                                         <h5 className="text-xl font-bold">
-                                            Alexa Smith
+                                            Ирина Романова
                                         </h5>
                                         <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                             UI/UX Designer
@@ -325,7 +325,7 @@ const Accel: React.FC = () => {
                                     />
                                     <div className="pt-6 text-center">
                                         <h5 className="text-xl font-bold">
-                                            Jenna Kardi
+                                            Анна Жукова
                                         </h5>
                                         <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
                                             Founder and CEO
