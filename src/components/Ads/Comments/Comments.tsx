@@ -19,7 +19,7 @@ const Comments = ({ isOpen, comments }: Props) => {
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
             <div className={styles.container}>
                 <CommentsList />
-                {!user ? <SendCommentForm /> : <HaveToLogin />}
+                {user ? <SendCommentForm /> : <HaveToLogin />}
             </div>
         </Collapse>
     );

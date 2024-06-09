@@ -27,7 +27,7 @@ const MessageSendForm = () => {
         onSubmit: async (val, { setStatus, resetForm }) => {
             setStatus('pending')
             await addMessage({
-                from: userName || 'user',
+                from: 'tanya',
                 message: val.message,
                 datetime: new Date(Date.now()).toISOString(),
                 id: Date.now()

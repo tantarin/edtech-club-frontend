@@ -28,7 +28,7 @@ const SendCommentForm = () => {
         onSubmit: async (val, { setStatus, resetForm }) => {
             setStatus('pending')
             await addComment({
-                author: userName,
+                author: 'tanya',
                 text: val.message,
                 time: new Date(Date.now()).toISOString(),
                 id: Date.now()
